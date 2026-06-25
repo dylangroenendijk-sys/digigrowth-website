@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Footer from '../components/Footer'
 
 // Replace YOUR_FORM_ID with your Formspree form ID after creating an account at formspree.io
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID'
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xwvdlwvq'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', business: '', email: '', phone: '', message: '' })
