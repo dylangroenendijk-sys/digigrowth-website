@@ -142,10 +142,10 @@ export default function Hero() {
   }
 
   const primaryBtn = {
-    padding: '16px 38px',
-    background: 'linear-gradient(135deg, #3a7bd5, #2d66b8)',
+    padding: '17px 42px',
+    background: 'linear-gradient(135deg, #4d8fe8, #2563eb)',
     color: '#fff',
-    border: 'none',
+    border: '1px solid rgba(255,255,255,0.15)',
     borderRadius: 8,
     fontSize: 15,
     fontWeight: 600,
@@ -153,7 +153,7 @@ export default function Hero() {
     transition: 'all 0.25s',
     letterSpacing: '0.3px',
     animation: 'glow-btn 3s ease-in-out infinite',
-    boxShadow: '0 0 20px rgba(58,123,213,0.4), 0 0 60px rgba(58,123,213,0.15)',
+    boxShadow: '0 0 24px rgba(58,123,213,0.55), 0 0 70px rgba(58,123,213,0.2), inset 0 1px 0 rgba(255,255,255,0.15)',
   }
 
   const secondaryBtn = {

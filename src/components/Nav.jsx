@@ -46,17 +46,17 @@ export default function Nav() {
   }
 
   const ctaBtn = {
-    padding: '9px 22px',
-    background: 'linear-gradient(135deg, #3a7bd5, #2d66b8)',
+    padding: '10px 22px',
+    background: 'linear-gradient(135deg, #4d8fe8, #2563eb)',
     color: '#fff',
-    border: 'none',
+    border: '1px solid rgba(255,255,255,0.12)',
     borderRadius: 6,
     fontSize: 13,
-    fontWeight: 500,
+    fontWeight: 600,
     cursor: 'pointer',
     transition: 'all 0.2s',
     letterSpacing: '0.2px',
-    boxShadow: '0 0 16px rgba(58,123,213,0.3)',
+    boxShadow: '0 0 18px rgba(58,123,213,0.45), inset 0 1px 0 rgba(255,255,255,0.12)',
     fontFamily: 'inherit',
   }
 

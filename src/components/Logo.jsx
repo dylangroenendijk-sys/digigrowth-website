@@ -37,8 +37,8 @@ export default function Logo({ size = 30 }) {
           fill="url(#dg-g)" opacity="0.82" />
       </svg>
 
-      {/* Text + trendline */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+      {/* Text + trendline — constrained to text width */}
+      <div style={{ display: 'inline-flex', flexDirection: 'column', gap: 4 }}>
         <span style={{
           fontFamily: "'Space Grotesk', sans-serif",
           fontSize: textSize,
@@ -47,6 +47,7 @@ export default function Logo({ size = 30 }) {
           color: '#fff',
           lineHeight: 1,
           userSelect: 'none',
+          whiteSpace: 'nowrap',
         }}>
           Digi<span style={{
             background: 'linear-gradient(90deg, #60a5fa, #3a7bd5)',
@@ -56,45 +57,38 @@ export default function Logo({ size = 30 }) {
           }}>Growth</span>
         </span>
 
-        {/* Trendline with bracket arrow */}
+        {/* Trendline — stretches to match text width exactly */}
         <svg
-          width={size * 3.2}
-          height={size * 0.38}
-          viewBox="0 0 96 11"
+          style={{ width: '100%', display: 'block' }}
+          height={Math.round(size * 0.36)}
+          viewBox="0 0 100 10"
+          preserveAspectRatio="none"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
-            <linearGradient id="tl-g" x1="0" y1="0" x2="96" y2="0" gradientUnits="userSpaceOnUse">
-              <stop offset="0%"   stopColor="#3a7bd5" stopOpacity="0.3" />
-              <stop offset="50%"  stopColor="#3a7bd5" />
+            <linearGradient id="tl-g" x1="0" y1="0" x2="100" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0%"   stopColor="#3a7bd5" stopOpacity="0.25" />
+              <stop offset="55%"  stopColor="#3a7bd5" />
               <stop offset="100%" stopColor="#3bf0ff" />
             </linearGradient>
-            <filter id="tl-glow" x="-5%" y="-100%" width="110%" height="300%">
-              <feGaussianBlur in="SourceAlpha" stdDeviation="1.2" result="b" />
+            <filter id="tl-glow" x="-5%" y="-120%" width="110%" height="340%">
+              <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="b" />
               <feColorMatrix in="b" type="matrix"
-                values="0 0 0 0 0.23  0 0 0 0 0.94  0 0 0 0 1  0 0 0 0.4 0" result="g" />
+                values="0 0 0 0 0.23  0 0 0 0 0.94  0 0 0 0 1  0 0 0 0.45 0" result="g" />
               <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
             </filter>
           </defs>
-
-          {/* Trendline ending exactly at bracket corner (86, 1) */}
-          <path
-            d="M0,9 L44,9 L62,6 L86,1"
-            stroke="url(#tl-g)"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+          {/* Line rises to x=88 which is the bracket corner */}
+          <path d="M0,8.5 L42,8.5 L62,6 L88,1"
+            stroke="url(#tl-g)" strokeWidth="1.6"
+            strokeLinecap="round" strokeLinejoin="round"
             filter="url(#tl-glow)"
           />
-
-          {/* Bracket: corner at (86,1), arms 9px right and 9px down */}
-          <path
-            d="M86,1 L95,1 L95,10"
-            stroke="url(#tl-g)"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+          {/* Bracket: corner at (88,1), right arm to 97, down arm to 9 — equal 9-unit arms */}
+          <path d="M88,1 L97,1 L97,9"
+            stroke="url(#tl-g)" strokeWidth="1.6"
+            strokeLinecap="round" strokeLinejoin="round"
             filter="url(#tl-glow)"
           />
         </svg>
