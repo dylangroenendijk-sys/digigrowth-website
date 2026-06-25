@@ -23,8 +23,8 @@ const services = [
   {
     tag: 'DATABASE REACTIVATION',
     title: 'Reactivate Your Old Leads',
-    desc: 'Most businesses are sitting on hundreds of dead leads they already paid to acquire. We go back and unlock that revenue — no new ad spend required. Our parallel dialer contacts up to 10 leads simultaneously while AI-driven SMS sequences run in the background, re-engaging your list within hours.',
-    highlights: ['10-line parallel outbound dialer', 'AI SMS reactivation sequences', 'Zero additional ad spend', 'Full database contacted in < 24 hours'],
+    desc: 'Most businesses are sitting on hundreds of dead leads they already paid to acquire. We go back and unlock that revenue — no new ad spend required. AI-driven SMS and email sequences re-engage your list automatically, turning cold contacts into booked appointments.',
+    highlights: ['AI SMS + email reactivation sequences', 'Automated follow-up cadences', 'Zero additional ad spend', 'Full database contacted in < 24 hours'],
     accent: '#14c882',
   },
 ]

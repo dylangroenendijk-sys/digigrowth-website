@@ -8,7 +8,7 @@ const steps = [
   {
     num: '02',
     title: 'We Reactivate Your Dead Leads',
-    desc: 'Before spending more on ads, we go through your existing database. Our parallel dialer contacts up to 10 leads simultaneously while AI SMS sequences run in parallel — recovering revenue from leads you already paid for.',
+    desc: 'Before spending more on ads, we go through your existing database. AI-driven SMS and email sequences automatically re-engage dormant contacts — recovering revenue from leads you already paid for, at no extra ad cost.',
     tag: 'DATABASE REACTIVATION',
   },
   {
