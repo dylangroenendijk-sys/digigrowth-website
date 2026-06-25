@@ -67,7 +67,7 @@ export default function Nav() {
 
   return (
     <nav style={nav}>
-      <Link to="/"><Logo /></Link>
+      <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}><Logo /></Link>
 
       <div style={links}>
         {['services', 'how-it-works', 'ai'].map((id, i) => (
