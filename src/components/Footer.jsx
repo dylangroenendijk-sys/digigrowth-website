@@ -1,9 +1,11 @@
+import Logo from './Logo'
+
 const CALENDLY_URL = 'https://calendly.com/dylanrg-digigrowthllc/30min'
 
 export default function Footer() {
   const footer = {
-    padding: '48px 32px',
-    borderTop: '1px solid rgba(58, 123, 213, 0.1)',
+    padding: '52px 32px',
+    borderTop: '1px solid rgba(58, 123, 213, 0.08)',
   }
 
   const inner = {
@@ -13,30 +15,21 @@ export default function Footer() {
     justifyContent: 'space-between',
     alignItems: 'center',
     flexWrap: 'wrap',
-    gap: 20,
+    gap: 24,
   }
 
-  const left = { display: 'flex', flexDirection: 'column', gap: 8 }
-
-  const logo = {
-    fontSize: 18,
-    fontWeight: 700,
-    color: '#fff',
-    letterSpacing: '-0.5px',
-  }
-
-  const accent = { color: '#3a7bd5' }
+  const left = { display: 'flex', flexDirection: 'column', gap: 12 }
 
   const tagline = {
     fontSize: 12,
-    color: '#8a9bc4',
+    color: '#4a5a7c',
     fontFamily: "'Share Tech Mono', monospace",
     letterSpacing: '1px',
   }
 
   const copy = {
     fontSize: 12,
-    color: '#4a5a7c',
+    color: '#2e3d5c',
     fontFamily: "'Share Tech Mono', monospace",
   }
 
@@ -49,7 +42,7 @@ export default function Footer() {
 
   const emailLink = {
     fontSize: 13,
-    color: '#8a9bc4',
+    color: '#4a5a7c',
     transition: 'color 0.2s',
     fontFamily: "'Share Tech Mono', monospace",
   }
@@ -65,7 +58,7 @@ export default function Footer() {
     <footer style={footer}>
       <div style={inner}>
         <div style={left}>
-          <span style={logo}>Digi<span style={accent}>Growth</span></span>
+          <Logo size={24} />
           <span style={tagline}>AI-Powered Client Acquisition</span>
           <span style={copy}>© {new Date().getFullYear()} DigiGrowth LLC</span>
         </div>
@@ -73,8 +66,8 @@ export default function Footer() {
           <a
             href="mailto:dylanrg@digigrowthllc.com"
             style={emailLink}
-            onMouseEnter={e => (e.currentTarget.style.color = '#e8edf8')}
-            onMouseLeave={e => (e.currentTarget.style.color = '#8a9bc4')}
+            onMouseEnter={e => (e.currentTarget.style.color = '#8a9bc4')}
+            onMouseLeave={e => (e.currentTarget.style.color = '#4a5a7c')}
           >
             dylanrg@digigrowthllc.com
           </a>

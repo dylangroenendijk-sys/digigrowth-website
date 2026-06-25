@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import Logo from './Logo'
 
 const CALENDLY_URL = 'https://calendly.com/dylanrg-digigrowthllc/30min'
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
-  const location = useLocation()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -25,19 +25,10 @@ export default function Nav() {
     alignItems: 'center',
     justifyContent: 'space-between',
     transition: 'all 0.3s ease',
-    background: scrolled ? 'rgba(9, 15, 38, 0.96)' : 'transparent',
-    backdropFilter: scrolled ? 'blur(12px)' : 'none',
-    borderBottom: scrolled ? '1px solid rgba(58, 123, 213, 0.12)' : '1px solid transparent',
+    background: scrolled ? 'rgba(6, 12, 31, 0.96)' : 'transparent',
+    backdropFilter: scrolled ? 'blur(16px)' : 'none',
+    borderBottom: scrolled ? '1px solid rgba(58, 123, 213, 0.1)' : '1px solid transparent',
   }
-
-  const logo = {
-    fontSize: 20,
-    fontWeight: 700,
-    letterSpacing: '-0.5px',
-    color: '#fff',
-  }
-
-  const logoAccent = { color: '#3a7bd5' }
 
   const links = {
     display: 'flex',
@@ -47,24 +38,26 @@ export default function Nav() {
 
   const linkStyle = {
     fontSize: 14,
-    fontWeight: 500,
+    fontWeight: 400,
     color: '#8a9bc4',
     transition: 'color 0.2s',
     cursor: 'pointer',
-    letterSpacing: '0.2px',
+    letterSpacing: '0.1px',
   }
 
   const ctaBtn = {
-    padding: '9px 20px',
-    background: '#3a7bd5',
+    padding: '9px 22px',
+    background: 'linear-gradient(135deg, #3a7bd5, #2d66b8)',
     color: '#fff',
     border: 'none',
     borderRadius: 6,
     fontSize: 13,
-    fontWeight: 600,
+    fontWeight: 500,
     cursor: 'pointer',
-    transition: 'background 0.2s, transform 0.15s',
-    letterSpacing: '0.3px',
+    transition: 'all 0.2s',
+    letterSpacing: '0.2px',
+    boxShadow: '0 0 16px rgba(58,123,213,0.3)',
+    fontFamily: 'inherit',
   }
 
   const scrollTo = (id) => {
@@ -74,19 +67,25 @@ export default function Nav() {
 
   return (
     <nav style={nav}>
-      <Link to="/" style={logo}>
-        Digi<span style={logoAccent}>Growth</span>
-      </Link>
+      <Link to="/"><Logo /></Link>
 
       <div style={links}>
-        <span style={linkStyle} onClick={() => scrollTo('services')} onMouseEnter={e => (e.target.style.color = '#e8edf8')} onMouseLeave={e => (e.target.style.color = '#8a9bc4')}>Services</span>
-        <span style={linkStyle} onClick={() => scrollTo('how-it-works')} onMouseEnter={e => (e.target.style.color = '#e8edf8')} onMouseLeave={e => (e.target.style.color = '#8a9bc4')}>How It Works</span>
-        <span style={linkStyle} onClick={() => scrollTo('ai')} onMouseEnter={e => (e.target.style.color = '#e8edf8')} onMouseLeave={e => (e.target.style.color = '#8a9bc4')}>AI System</span>
+        {['services', 'how-it-works', 'ai'].map((id, i) => (
+          <span
+            key={id}
+            style={linkStyle}
+            onClick={() => scrollTo(id)}
+            onMouseEnter={e => (e.target.style.color = '#e8edf8')}
+            onMouseLeave={e => (e.target.style.color = '#8a9bc4')}
+          >
+            {['Services', 'How It Works', 'AI System'][i]}
+          </span>
+        ))}
         <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
           <button
             style={ctaBtn}
-            onMouseEnter={e => { e.target.style.background = '#2d66b8' }}
-            onMouseLeave={e => { e.target.style.background = '#3a7bd5' }}
+            onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 0 24px rgba(58,123,213,0.5)'; e.currentTarget.style.transform = 'translateY(-1px)' }}
+            onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 0 16px rgba(58,123,213,0.3)'; e.currentTarget.style.transform = 'translateY(0)' }}
           >
             Book a Call
           </button>

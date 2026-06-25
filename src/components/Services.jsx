@@ -51,6 +51,7 @@ export default function Services() {
     color: '#fff',
     lineHeight: 1.15,
     marginBottom: 16,
+    fontFamily: "'Space Grotesk', sans-serif",
   }
 
   const sub = {

@@ -113,6 +113,7 @@ export default function Hero() {
     letterSpacing: '-2px',
     marginBottom: 28,
     color: '#fff',
+    fontFamily: "'Space Grotesk', sans-serif",
   }
 
   const gradientText = {
@@ -128,6 +129,8 @@ export default function Hero() {
     lineHeight: 1.75,
     maxWidth: 600,
     margin: '0 auto 52px',
+    fontWeight: 300,
+    letterSpacing: '0.1px',
   }
 
   const ctaRow = {

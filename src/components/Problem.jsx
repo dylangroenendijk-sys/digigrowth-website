@@ -44,6 +44,7 @@ export default function Problem() {
     letterSpacing: '-1px',
     color: '#fff',
     lineHeight: 1.15,
+    fontFamily: "'Space Grotesk', sans-serif",
   }
 
   const grid = {

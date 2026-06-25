@@ -46,6 +46,7 @@ export default function CTA() {
     color: '#fff',
     lineHeight: 1.1,
     marginBottom: 22,
+    fontFamily: "'Space Grotesk', sans-serif",
   }
 
   const gradientText = {

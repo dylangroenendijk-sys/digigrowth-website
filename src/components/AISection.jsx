@@ -153,6 +153,7 @@ export default function AISection() {
     color: '#fff',
     lineHeight: 1.15,
     marginBottom: 22,
+    fontFamily: "'Space Grotesk', sans-serif",
   }
 
   const gradientText = {
