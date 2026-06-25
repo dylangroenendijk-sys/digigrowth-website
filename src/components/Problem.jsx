@@ -1,18 +1,18 @@
 const problems = [
   {
-    icon: '📉',
-    title: 'Ads That Don\'t Convert',
-    desc: 'You\'ve tried running Facebook or Instagram ads but spent money with nothing to show for it. Poor targeting and weak follow-up kill results before they start.',
+    id: '01',
+    title: 'No Consistent Lead Flow',
+    desc: 'Most businesses rely on referrals or word of mouth. It works until it doesn\'t — and when the pipeline dries up, there\'s no system to turn back on.',
   },
   {
-    icon: '⏳',
-    title: 'Leads Go Cold Fast',
-    desc: 'You get an inquiry, but by the time you follow up they\'ve already moved on. Without instant, consistent outreach, you\'re leaving money on the table every day.',
+    id: '02',
+    title: 'Leads Go Cold Before You Respond',
+    desc: 'Speed to lead is everything. If you\'re not following up within minutes, you\'re losing deals to whoever is. Manual follow-up can\'t compete.',
   },
   {
-    icon: '🔄',
-    title: 'No Time To Chase Clients',
-    desc: 'You\'re a coach, not a marketer. You shouldn\'t have to spend hours every week chasing leads — your time should be on the floor, not behind a screen.',
+    id: '03',
+    title: 'Too Busy Running the Business to Grow It',
+    desc: 'You shouldn\'t have to choose between serving your clients and finding new ones. That tradeoff disappears when the system runs itself.',
   },
 ]
 
@@ -29,16 +29,17 @@ export default function Problem() {
   }
 
   const eyebrow = {
-    fontSize: 13,
-    fontWeight: 600,
+    fontSize: 11,
+    fontWeight: 500,
     color: '#3a7bd5',
-    letterSpacing: '2px',
+    letterSpacing: '2.5px',
     textTransform: 'uppercase',
-    marginBottom: 14,
+    marginBottom: 16,
+    fontFamily: "'Share Tech Mono', monospace",
   }
 
   const h2 = {
-    fontSize: 'clamp(28px, 4vw, 44px)',
+    fontSize: 'clamp(26px, 3.5vw, 42px)',
     fontWeight: 700,
     letterSpacing: '-0.8px',
     color: '#fff',
@@ -47,22 +48,25 @@ export default function Problem() {
 
   const grid = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-    gap: 24,
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gap: 1,
+    background: 'rgba(58, 123, 213, 0.12)',
+    border: '1px solid rgba(58, 123, 213, 0.12)',
+    borderRadius: 8,
+    overflow: 'hidden',
   }
 
   const card = {
-    padding: '36px 32px',
-    background: 'rgba(13, 21, 53, 0.6)',
-    border: '1px solid rgba(58, 123, 213, 0.15)',
-    borderRadius: 16,
-    backdropFilter: 'blur(12px)',
+    padding: '40px 36px',
+    background: '#090f26',
   }
 
-  const icon = {
-    fontSize: 36,
+  const numStyle = {
+    fontSize: 11,
+    fontFamily: "'Share Tech Mono', monospace",
+    color: '#3a7bd5',
+    letterSpacing: '2px',
     marginBottom: 20,
-    display: 'block',
   }
 
   const cardTitle = {
@@ -82,13 +86,13 @@ export default function Problem() {
   return (
     <section style={section}>
       <div style={header}>
-        <p style={eyebrow}>Sound Familiar?</p>
-        <h2 style={h2}>Most Gym Owners Are Stuck<br />In The Same Cycle</h2>
+        <p style={eyebrow}>The Problem</p>
+        <h2 style={h2}>Growth Stalls When There's No System Behind It</h2>
       </div>
       <div style={grid}>
         {problems.map(p => (
-          <div key={p.title} style={card}>
-            <span style={icon}>{p.icon}</span>
+          <div key={p.id} style={card}>
+            <div style={numStyle}>// {p.id}</div>
             <div style={cardTitle}>{p.title}</div>
             <div style={cardDesc}>{p.desc}</div>
           </div>

@@ -1,25 +1,27 @@
 const steps = [
   {
     num: '01',
-    title: 'We Launch Your Ads',
-    desc: 'We build and manage targeted Meta ad campaigns that reach your ideal client — people in your area actively looking for fitness coaching or gym memberships.',
+    title: 'We Build Your Ad System',
+    desc: 'We design and launch targeted Meta ad campaigns built around your ideal client profile — the right message, the right audience, the right offer. You don\'t touch a thing.',
   },
   {
     num: '02',
-    title: 'Leads Get Qualified Automatically',
-    desc: 'Every lead is instantly followed up via automated SMS and email sequences. We qualify them, answer objections, and warm them up — without you doing a thing.',
+    title: 'AI Qualifies Every Lead Instantly',
+    desc: 'The moment a lead comes in, our AI engages them via SMS and email — within 60 seconds, around the clock. It qualifies, handles objections, and moves them toward a booking automatically.',
   },
   {
     num: '03',
-    title: 'Clients Land On Your Calendar',
-    desc: 'Pre-qualified, ready-to-buy prospects are booked directly into your calendar for intro sessions or consultations. You show up and close.',
+    title: 'Clients Book Directly On Your Calendar',
+    desc: 'Pre-qualified prospects schedule themselves onto your calendar. You get notified, you show up, you close. No chasing, no back-and-forth, no wasted time.',
   },
 ]
 
 export default function HowItWorks() {
   const section = {
     padding: '100px 24px',
-    background: 'rgba(13, 21, 53, 0.4)',
+    borderTop: '1px solid rgba(58, 123, 213, 0.1)',
+    borderBottom: '1px solid rgba(58, 123, 213, 0.1)',
+    background: 'rgba(13, 21, 53, 0.35)',
   }
 
   const inner = {
@@ -33,16 +35,17 @@ export default function HowItWorks() {
   }
 
   const eyebrow = {
-    fontSize: 13,
-    fontWeight: 600,
+    fontSize: 11,
+    fontWeight: 500,
     color: '#14c882',
-    letterSpacing: '2px',
+    letterSpacing: '2.5px',
     textTransform: 'uppercase',
-    marginBottom: 14,
+    marginBottom: 16,
+    fontFamily: "'Share Tech Mono', monospace",
   }
 
   const h2 = {
-    fontSize: 'clamp(28px, 4vw, 44px)',
+    fontSize: 'clamp(26px, 3.5vw, 42px)',
     fontWeight: 700,
     letterSpacing: '-0.8px',
     color: '#fff',
@@ -51,32 +54,36 @@ export default function HowItWorks() {
 
   const grid = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-    gap: 32,
-    position: 'relative',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gap: 24,
   }
 
   const card = {
-    padding: '40px 36px',
+    padding: '36px 32px',
     background: 'rgba(9, 15, 38, 0.7)',
-    border: '1px solid rgba(58, 123, 213, 0.2)',
-    borderRadius: 16,
+    border: '1px solid rgba(58, 123, 213, 0.15)',
+    borderRadius: 8,
     position: 'relative',
-    overflow: 'hidden',
   }
 
   const numStyle = {
-    fontSize: 56,
-    fontWeight: 800,
-    color: 'rgba(58, 123, 213, 0.12)',
-    lineHeight: 1,
+    fontSize: 11,
+    fontFamily: "'Share Tech Mono', monospace",
+    color: '#3a7bd5',
+    letterSpacing: '2px',
     marginBottom: 20,
-    letterSpacing: '-2px',
-    fontVariantNumeric: 'tabular-nums',
+  }
+
+  const bar = {
+    width: 32,
+    height: 2,
+    background: '#3a7bd5',
+    marginBottom: 20,
+    borderRadius: 1,
   }
 
   const cardTitle = {
-    fontSize: 20,
+    fontSize: 19,
     fontWeight: 600,
     color: '#fff',
     marginBottom: 14,
@@ -86,7 +93,7 @@ export default function HowItWorks() {
   const cardDesc = {
     fontSize: 15,
     color: '#8a9bc4',
-    lineHeight: 1.7,
+    lineHeight: 1.75,
   }
 
   return (
@@ -94,12 +101,13 @@ export default function HowItWorks() {
       <div style={inner}>
         <div style={header}>
           <p style={eyebrow}>The Process</p>
-          <h2 style={h2}>How DigiGrowth Works</h2>
+          <h2 style={h2}>From Zero to Full Pipeline in Three Steps</h2>
         </div>
         <div style={grid}>
           {steps.map(s => (
             <div key={s.num} style={card}>
-              <div style={numStyle}>{s.num}</div>
+              <div style={numStyle}>STEP {s.num}</div>
+              <div style={bar} />
               <div style={cardTitle}>{s.title}</div>
               <div style={cardDesc}>{s.desc}</div>
             </div>

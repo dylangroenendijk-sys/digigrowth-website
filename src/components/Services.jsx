@@ -1,21 +1,21 @@
 const services = [
   {
-    icon: '🎯',
+    tag: 'PAID MEDIA',
     title: 'Meta Ads Management',
-    desc: 'Full-service Facebook and Instagram ad campaigns — creative, copy, targeting, and optimization. We handle everything so you never have to touch Ads Manager.',
-    highlights: ['Campaign strategy & setup', 'Ad creative & copy', 'Audience targeting', 'Ongoing optimization'],
+    desc: 'Full-service Facebook and Instagram campaigns — strategy, creative, copy, targeting, and optimization. We build and manage everything inside Ads Manager so you never have to.',
+    highlights: ['Campaign strategy & build', 'Ad creative & copywriting', 'Audience & retargeting setup', 'Ongoing A/B optimization'],
   },
   {
-    icon: '⚡',
-    title: 'Lead Qualification',
-    desc: 'Every lead is instantly followed up with automated SMS and email sequences that filter out tire-kickers and nurture serious prospects into booked calls.',
-    highlights: ['Instant SMS follow-up', 'Email nurture sequences', 'Lead scoring & filtering', 'Objection handling'],
+    tag: 'AI AUTOMATION',
+    title: 'AI Lead Qualification',
+    desc: 'Our AI contacts every inbound lead within 60 seconds via SMS and email — 24 hours a day, 7 days a week. It qualifies prospects, handles objections, and nurtures them toward a booked call without any human involvement.',
+    highlights: ['Sub-60s lead response', 'Multi-touch SMS + email sequences', 'AI objection handling', 'Lead scoring & filtering'],
   },
   {
-    icon: '📅',
-    title: 'Calendar Automation',
-    desc: 'Qualified leads book themselves directly onto your calendar. No back-and-forth, no manual scheduling — just a steady flow of ready-to-close appointments.',
-    highlights: ['Automated booking flows', 'Appointment reminders', 'No-show reduction', 'CRM integration'],
+    tag: 'AUTOMATION',
+    title: 'Calendar & Pipeline Automation',
+    desc: 'Qualified leads self-book onto your calendar. Reminders go out automatically. Your CRM updates itself. The entire backend of your sales process runs on autopilot.',
+    highlights: ['Automated booking flows', 'Appointment reminders', 'CRM pipeline management', 'No-show reduction sequences'],
   },
 ]
 
@@ -32,16 +32,17 @@ export default function Services() {
   }
 
   const eyebrow = {
-    fontSize: 13,
-    fontWeight: 600,
+    fontSize: 11,
+    fontWeight: 500,
     color: '#3a7bd5',
-    letterSpacing: '2px',
+    letterSpacing: '2.5px',
     textTransform: 'uppercase',
-    marginBottom: 14,
+    marginBottom: 16,
+    fontFamily: "'Share Tech Mono', monospace",
   }
 
   const h2 = {
-    fontSize: 'clamp(28px, 4vw, 44px)',
+    fontSize: 'clamp(26px, 3.5vw, 42px)',
     fontWeight: 700,
     letterSpacing: '-0.8px',
     color: '#fff',
@@ -54,49 +55,53 @@ export default function Services() {
     color: '#8a9bc4',
     maxWidth: 520,
     margin: '0 auto',
-    lineHeight: 1.6,
+    lineHeight: 1.65,
   }
 
   const grid = {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-    gap: 24,
+    gap: 1,
+    background: 'rgba(58, 123, 213, 0.1)',
+    border: '1px solid rgba(58, 123, 213, 0.12)',
+    borderRadius: 8,
+    overflow: 'hidden',
+    marginTop: 56,
   }
 
   const card = {
     padding: '40px 36px',
-    background: 'rgba(13, 21, 53, 0.6)',
-    border: '1px solid rgba(58, 123, 213, 0.18)',
-    borderRadius: 16,
-    backdropFilter: 'blur(12px)',
-    transition: 'border-color 0.25s, transform 0.25s',
+    background: '#090f26',
+    transition: 'background 0.2s',
   }
 
-  const iconBox = {
-    width: 52,
-    height: 52,
-    background: 'rgba(58, 123, 213, 0.12)',
-    border: '1px solid rgba(58, 123, 213, 0.25)',
-    borderRadius: 12,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 24,
-    marginBottom: 24,
+  const tagStyle = {
+    fontSize: 10,
+    fontFamily: "'Share Tech Mono', monospace",
+    color: '#3a7bd5',
+    letterSpacing: '2.5px',
+    marginBottom: 20,
+    display: 'block',
   }
 
   const cardTitle = {
     fontSize: 20,
     fontWeight: 600,
     color: '#fff',
-    marginBottom: 12,
+    marginBottom: 14,
     letterSpacing: '-0.3px',
   }
 
   const cardDesc = {
     fontSize: 15,
     color: '#8a9bc4',
-    lineHeight: 1.7,
+    lineHeight: 1.75,
+    marginBottom: 28,
+  }
+
+  const divider = {
+    height: 1,
+    background: 'rgba(58, 123, 213, 0.12)',
     marginBottom: 24,
   }
 
@@ -108,14 +113,16 @@ export default function Services() {
   }
 
   const listItem = {
-    fontSize: 14,
+    fontSize: 13,
     color: '#b0bfd8',
     display: 'flex',
     alignItems: 'center',
-    gap: 8,
+    gap: 10,
+    fontFamily: "'Share Tech Mono', monospace",
+    letterSpacing: '0.3px',
   }
 
-  const check = {
+  const dash = {
     color: '#14c882',
     fontWeight: 700,
     flexShrink: 0,
@@ -125,24 +132,25 @@ export default function Services() {
     <section id="services" style={section}>
       <div style={header}>
         <p style={eyebrow}>What We Do</p>
-        <h2 style={h2}>Everything You Need To Grow</h2>
-        <p style={sub}>One system. One team. One monthly fee. We handle the entire client acquisition pipeline so you can focus on coaching.</p>
+        <h2 style={h2}>One System. End to End.</h2>
+        <p style={sub}>Every piece of your client acquisition pipeline — built, integrated, and managed for you.</p>
       </div>
       <div style={grid}>
         {services.map(s => (
           <div
             key={s.title}
             style={card}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(58,123,213,0.45)'; e.currentTarget.style.transform = 'translateY(-4px)' }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(58,123,213,0.18)'; e.currentTarget.style.transform = 'translateY(0)' }}
+            onMouseEnter={e => (e.currentTarget.style.background = '#0d1535')}
+            onMouseLeave={e => (e.currentTarget.style.background = '#090f26')}
           >
-            <div style={iconBox}>{s.icon}</div>
+            <span style={tagStyle}>{s.tag}</span>
             <div style={cardTitle}>{s.title}</div>
             <div style={cardDesc}>{s.desc}</div>
+            <div style={divider} />
             <ul style={list}>
               {s.highlights.map(h => (
                 <li key={h} style={listItem}>
-                  <span style={check}>✓</span> {h}
+                  <span style={dash}>—</span> {h}
                 </li>
               ))}
             </ul>

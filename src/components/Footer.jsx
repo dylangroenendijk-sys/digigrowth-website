@@ -1,7 +1,9 @@
+const CALENDLY_URL = 'https://calendly.com/dylanrg-digigrowthllc/30min'
+
 export default function Footer() {
   const footer = {
-    padding: '48px 24px',
-    borderTop: '1px solid rgba(58, 123, 213, 0.12)',
+    padding: '48px 32px',
+    borderTop: '1px solid rgba(58, 123, 213, 0.1)',
   }
 
   const inner = {
@@ -11,11 +13,13 @@ export default function Footer() {
     justifyContent: 'space-between',
     alignItems: 'center',
     flexWrap: 'wrap',
-    gap: 16,
+    gap: 20,
   }
 
+  const left = { display: 'flex', flexDirection: 'column', gap: 8 }
+
   const logo = {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 700,
     color: '#fff',
     letterSpacing: '-0.5px',
@@ -23,31 +27,68 @@ export default function Footer() {
 
   const accent = { color: '#3a7bd5' }
 
-  const copy = {
-    fontSize: 13,
+  const tagline = {
+    fontSize: 12,
     color: '#8a9bc4',
+    fontFamily: "'Share Tech Mono', monospace",
+    letterSpacing: '1px',
   }
 
-  const email = {
-    fontSize: 14,
+  const copy = {
+    fontSize: 12,
+    color: '#4a5a7c',
+    fontFamily: "'Share Tech Mono', monospace",
+  }
+
+  const rightLinks = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+    gap: 10,
+  }
+
+  const emailLink = {
+    fontSize: 13,
     color: '#8a9bc4',
     transition: 'color 0.2s',
-    cursor: 'pointer',
+    fontFamily: "'Share Tech Mono', monospace",
+  }
+
+  const bookLink = {
+    fontSize: 13,
+    color: '#3a7bd5',
+    transition: 'color 0.2s',
+    fontFamily: "'Share Tech Mono', monospace",
   }
 
   return (
     <footer style={footer}>
       <div style={inner}>
-        <span style={logo}>Digi<span style={accent}>Growth</span></span>
-        <span style={copy}>© {new Date().getFullYear()} DigiGrowth LLC. All rights reserved.</span>
-        <a
-          href="mailto:dylanrg@digigrowthllc.com"
-          style={email}
-          onMouseEnter={e => (e.currentTarget.style.color = '#3a7bd5')}
-          onMouseLeave={e => (e.currentTarget.style.color = '#8a9bc4')}
-        >
-          dylanrg@digigrowthllc.com
-        </a>
+        <div style={left}>
+          <span style={logo}>Digi<span style={accent}>Growth</span></span>
+          <span style={tagline}>AI-Powered Client Acquisition</span>
+          <span style={copy}>© {new Date().getFullYear()} DigiGrowth LLC</span>
+        </div>
+        <div style={rightLinks}>
+          <a
+            href="mailto:dylanrg@digigrowthllc.com"
+            style={emailLink}
+            onMouseEnter={e => (e.currentTarget.style.color = '#e8edf8')}
+            onMouseLeave={e => (e.currentTarget.style.color = '#8a9bc4')}
+          >
+            dylanrg@digigrowthllc.com
+          </a>
+          <a
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={bookLink}
+            onMouseEnter={e => (e.currentTarget.style.color = '#5a96f0')}
+            onMouseLeave={e => (e.currentTarget.style.color = '#3a7bd5')}
+          >
+            Book a Free Strategy Call →
+          </a>
+        </div>
       </div>
     </footer>
   )

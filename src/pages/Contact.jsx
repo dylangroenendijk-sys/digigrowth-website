@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import Footer from '../components/Footer'
 
-// Replace YOUR_FORM_ID with your Formspree form ID after creating an account at formspree.io
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xwvdlwvq'
+const CALENDLY_URL = 'https://calendly.com/dylanrg-digigrowthllc/30min'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', business: '', email: '', phone: '', message: '' })
-  const [status, setStatus] = useState('idle') // idle | sending | success | error
+  const [status, setStatus] = useState('idle')
 
   const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
 
@@ -33,28 +33,28 @@ export default function Contact() {
   const page = {
     minHeight: '100vh',
     paddingTop: 100,
-    paddingBottom: 0,
-    background: 'radial-gradient(ellipse 70% 50% at 50% -5%, rgba(58,123,213,0.14) 0%, transparent 65%)',
+    background: 'radial-gradient(ellipse 70% 50% at 50% -5%, rgba(58,123,213,0.12) 0%, transparent 65%)',
   }
 
   const inner = {
-    maxWidth: 640,
+    maxWidth: 660,
     margin: '0 auto',
     padding: '60px 24px 100px',
   }
 
   const eyebrow = {
-    fontSize: 13,
-    fontWeight: 600,
+    fontSize: 11,
+    fontWeight: 500,
     color: '#3a7bd5',
-    letterSpacing: '2px',
+    letterSpacing: '2.5px',
     textTransform: 'uppercase',
-    marginBottom: 14,
+    marginBottom: 16,
     textAlign: 'center',
+    fontFamily: "'Share Tech Mono', monospace",
   }
 
   const h1 = {
-    fontSize: 'clamp(28px, 4vw, 44px)',
+    fontSize: 'clamp(26px, 4vw, 40px)',
     fontWeight: 700,
     letterSpacing: '-0.8px',
     color: '#fff',
@@ -63,18 +63,28 @@ export default function Contact() {
   }
 
   const sub = {
-    fontSize: 16,
+    fontSize: 15,
     color: '#8a9bc4',
     textAlign: 'center',
-    marginBottom: 52,
-    lineHeight: 1.6,
+    marginBottom: 16,
+    lineHeight: 1.65,
+  }
+
+  const calendlyLink = {
+    display: 'block',
+    textAlign: 'center',
+    marginBottom: 48,
+    fontSize: 14,
+    color: '#3a7bd5',
+    fontFamily: "'Share Tech Mono', monospace",
+    transition: 'color 0.2s',
   }
 
   const card = {
     padding: '44px 40px',
     background: 'rgba(13, 21, 53, 0.7)',
-    border: '1px solid rgba(58, 123, 213, 0.2)',
-    borderRadius: 20,
+    border: '1px solid rgba(58, 123, 213, 0.18)',
+    borderRadius: 8,
     backdropFilter: 'blur(16px)',
   }
 
@@ -88,23 +98,25 @@ export default function Contact() {
     display: 'flex',
     flexDirection: 'column',
     gap: 6,
-    marginBottom: 20,
+    marginBottom: 18,
   }
 
   const label = {
-    fontSize: 13,
+    fontSize: 10,
     fontWeight: 500,
     color: '#8a9bc4',
-    letterSpacing: '0.3px',
+    letterSpacing: '2px',
+    textTransform: 'uppercase',
+    fontFamily: "'Share Tech Mono', monospace",
   }
 
   const input = {
-    padding: '12px 16px',
+    padding: '11px 14px',
     background: 'rgba(9, 15, 38, 0.8)',
-    border: '1px solid rgba(58, 123, 213, 0.2)',
-    borderRadius: 8,
+    border: '1px solid rgba(58, 123, 213, 0.18)',
+    borderRadius: 6,
     color: '#e8edf8',
-    fontSize: 15,
+    fontSize: 14,
     fontFamily: 'inherit',
     outline: 'none',
     transition: 'border-color 0.2s',
@@ -115,17 +127,18 @@ export default function Contact() {
 
   const btn = {
     width: '100%',
-    padding: '16px',
+    padding: '14px',
     background: status === 'sending' ? 'rgba(58,123,213,0.5)' : '#3a7bd5',
     color: '#fff',
     border: 'none',
-    borderRadius: 10,
-    fontSize: 16,
+    borderRadius: 6,
+    fontSize: 14,
     fontWeight: 600,
     cursor: status === 'sending' ? 'not-allowed' : 'pointer',
     transition: 'all 0.2s',
     marginTop: 8,
     fontFamily: 'inherit',
+    letterSpacing: '0.3px',
   }
 
   const successBox = {
@@ -133,44 +146,67 @@ export default function Contact() {
     padding: '48px 24px',
   }
 
-  const successIcon = { fontSize: 48, marginBottom: 20 }
-
   const successTitle = {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: 700,
     color: '#fff',
     marginBottom: 12,
   }
 
   const successSub = {
-    fontSize: 15,
+    fontSize: 14,
     color: '#8a9bc4',
-    lineHeight: 1.6,
+    lineHeight: 1.65,
+    marginBottom: 24,
+  }
+
+  const successBtn = {
+    display: 'inline-block',
+    padding: '12px 28px',
+    background: '#3a7bd5',
+    color: '#fff',
+    borderRadius: 6,
+    fontSize: 14,
+    fontWeight: 600,
+    textDecoration: 'none',
   }
 
   const errorMsg = {
     marginTop: 12,
-    fontSize: 14,
+    fontSize: 13,
     color: '#f87171',
     textAlign: 'center',
+    fontFamily: "'Share Tech Mono', monospace",
   }
 
-  const focusStyle = e => (e.target.style.borderColor = 'rgba(58,123,213,0.6)')
-  const blurStyle = e => (e.target.style.borderColor = 'rgba(58,123,213,0.2)')
+  const focusStyle = e => (e.target.style.borderColor = 'rgba(58,123,213,0.5)')
+  const blurStyle = e => (e.target.style.borderColor = 'rgba(58,123,213,0.18)')
 
   return (
     <div style={page}>
       <div style={inner}>
         <p style={eyebrow}>Free Strategy Call</p>
-        <h1 style={h1}>Let's Talk About Your Growth</h1>
-        <p style={sub}>Tell us about your gym and we'll put together a custom client acquisition strategy — no cost, no obligation.</p>
+        <h1 style={h1}>Let's Build Your Pipeline</h1>
+        <p style={sub}>Tell us about your business and we'll put together a custom client acquisition strategy — no cost, no obligation.</p>
+        <a
+          href={CALENDLY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={calendlyLink}
+          onMouseEnter={e => (e.currentTarget.style.color = '#5a96f0')}
+          onMouseLeave={e => (e.currentTarget.style.color = '#3a7bd5')}
+        >
+          Prefer to book directly? Schedule on Calendly →
+        </a>
 
         <div style={card}>
           {status === 'success' ? (
             <div style={successBox}>
-              <div style={successIcon}>✅</div>
-              <div style={successTitle}>We'll be in touch!</div>
-              <div style={successSub}>Thanks for reaching out. We'll review your info and get back to you within 24 hours to schedule your strategy call.</div>
+              <div style={successTitle}>We'll be in touch.</div>
+              <div style={successSub}>We'll review your info and reach out within 24 hours to schedule your strategy call.</div>
+              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" style={successBtn}>
+                Or book now on Calendly →
+              </a>
             </div>
           ) : (
             <form onSubmit={handleSubmit}>
@@ -181,33 +217,33 @@ export default function Contact() {
                 </div>
                 <div style={group}>
                   <label style={label}>Business Name</label>
-                  <input style={input} name="business" value={form.business} onChange={handleChange} onFocus={focusStyle} onBlur={blurStyle} placeholder="FitLife Gym" required />
+                  <input style={input} name="business" value={form.business} onChange={handleChange} onFocus={focusStyle} onBlur={blurStyle} placeholder="Acme Co." required />
                 </div>
               </div>
               <div style={row}>
                 <div style={group}>
-                  <label style={label}>Email Address</label>
-                  <input style={input} type="email" name="email" value={form.email} onChange={handleChange} onFocus={focusStyle} onBlur={blurStyle} placeholder="john@fitlifegym.com" required />
+                  <label style={label}>Email</label>
+                  <input style={input} type="email" name="email" value={form.email} onChange={handleChange} onFocus={focusStyle} onBlur={blurStyle} placeholder="john@acmeco.com" required />
                 </div>
                 <div style={group}>
-                  <label style={label}>Phone Number</label>
+                  <label style={label}>Phone</label>
                   <input style={input} type="tel" name="phone" value={form.phone} onChange={handleChange} onFocus={focusStyle} onBlur={blurStyle} placeholder="(555) 000-0000" />
                 </div>
               </div>
               <div style={group}>
-                <label style={label}>Tell us about your gym</label>
-                <textarea style={textarea} name="message" value={form.message} onChange={handleChange} onFocus={focusStyle} onBlur={blurStyle} placeholder="How many members do you currently have? What's your biggest challenge with getting new clients?" />
+                <label style={label}>Tell us about your business</label>
+                <textarea style={textarea} name="message" value={form.message} onChange={handleChange} onFocus={focusStyle} onBlur={blurStyle} placeholder="What does your business do? What's your biggest challenge with getting new clients?" />
               </div>
               <button
                 type="submit"
                 style={btn}
                 disabled={status === 'sending'}
-                onMouseEnter={e => { if (status !== 'sending') { e.currentTarget.style.background = '#2d66b8'; e.currentTarget.style.transform = 'translateY(-1px)' } }}
-                onMouseLeave={e => { e.currentTarget.style.background = '#3a7bd5'; e.currentTarget.style.transform = 'translateY(0)' }}
+                onMouseEnter={e => { if (status !== 'sending') { e.currentTarget.style.background = '#2d66b8' } }}
+                onMouseLeave={e => { e.currentTarget.style.background = '#3a7bd5' }}
               >
-                {status === 'sending' ? 'Sending...' : 'Book My Free Strategy Call →'}
+                {status === 'sending' ? 'Sending...' : 'Book My Free Strategy Call'}
               </button>
-              {status === 'error' && <div style={errorMsg}>Something went wrong. Please email us directly at dylanrg@digigrowthllc.com</div>}
+              {status === 'error' && <div style={errorMsg}>Something went wrong — email us at dylanrg@digigrowthllc.com</div>}
             </form>
           )}
         </div>
