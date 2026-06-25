@@ -85,9 +85,9 @@ export default function Logo({ size = 30 }) {
           filter="url(#tl-glow)"
         />
 
-        {/* Bracket: corner at (128,15), arms 13 units each — perfectly equal */}
+        {/* Chevron > at end of trendline */}
         <path
-          d="M128,15 L141,15 L141,28"
+          d="M120,10 L128,15 L120,20"
           stroke="url(#tl-g)"
           strokeWidth="1.5"
           strokeLinecap="round"
