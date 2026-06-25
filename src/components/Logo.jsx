@@ -1,4 +1,9 @@
 export default function Logo({ size = 30 }) {
+  // Everything lives in one SVG so text and trendline share the same coordinate space.
+  // ViewBox is fixed at 144×38; size prop scales the rendered pixel dimensions.
+  const W = size * 4.8
+  const H = size * 1.27
+
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
 
@@ -30,23 +35,66 @@ export default function Logo({ size = 30 }) {
           fill="url(#dg-g)" opacity="0.82" />
       </svg>
 
-      <span style={{
-        fontFamily: "'Space Grotesk', sans-serif",
-        fontSize: size * 0.62,
-        fontWeight: 700,
-        letterSpacing: '-0.4px',
-        color: '#fff',
-        lineHeight: 1,
-        userSelect: 'none',
-        whiteSpace: 'nowrap',
-      }}>
-        Digi<span style={{
-          background: 'linear-gradient(90deg, #60a5fa, #3a7bd5)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text',
-        }}>Growth</span>
-      </span>
+      {/* Wordmark + trendline — single SVG, one coordinate system */}
+      <svg
+        width={W}
+        height={H}
+        viewBox="0 0 144 38"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          {/* Text gradient for "Growth" */}
+          <linearGradient id="wm-g" x1="32" y1="0" x2="132" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stopColor="#60a5fa" />
+            <stop offset="100%" stopColor="#3a7bd5" />
+          </linearGradient>
+          {/* Trendline gradient */}
+          <linearGradient id="tl-g" x1="0" y1="0" x2="144" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stopColor="#3a7bd5" stopOpacity="0.15" />
+            <stop offset="50%"  stopColor="#3a7bd5" />
+            <stop offset="100%" stopColor="#3bf0ff" />
+          </linearGradient>
+          {/* Glow for trendline */}
+          <filter id="tl-glow" x="-5%" y="-120%" width="110%" height="340%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="0.8" result="b" />
+            <feColorMatrix in="b" type="matrix"
+              values="0 0 0 0 0.23  0 0 0 0 0.94  0 0 0 0 1  0 0 0 0.5 0" result="g" />
+            <feMerge><feMergeNode in="g" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+        </defs>
+
+        {/* Wordmark: "Digi" light + "Growth" gradient */}
+        <text
+          x="0" y="23"
+          fontFamily="'Space Grotesk', sans-serif"
+          fontSize="19"
+          letterSpacing="-0.8"
+        >
+          <tspan fontWeight="500" fill="#bcd4ff">Digi</tspan>
+          <tspan fontWeight="700" fill="url(#wm-g)">Growth</tspan>
+        </text>
+
+        {/* Trendline: flat → rising, bracket corner exactly at (128, 15) */}
+        <path
+          d="M0,31 L70,31 L93,27 L128,15"
+          stroke="url(#tl-g)"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          filter="url(#tl-glow)"
+        />
+
+        {/* Bracket: corner at (128,15), arms 13 units each — perfectly equal */}
+        <path
+          d="M128,15 L141,15 L141,28"
+          stroke="url(#tl-g)"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          filter="url(#tl-glow)"
+        />
+      </svg>
     </div>
   )
 }
