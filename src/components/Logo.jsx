@@ -58,41 +58,41 @@ export default function Logo({ size = 30 }) {
 
         {/* Trendline with bracket arrow */}
         <svg
-          width={size * 4.4}
-          height={size * 0.42}
-          viewBox="0 0 132 13"
+          width={size * 3.2}
+          height={size * 0.38}
+          viewBox="0 0 96 11"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
-            <linearGradient id="tl-g" x1="0" y1="0" x2="132" y2="0" gradientUnits="userSpaceOnUse">
-              <stop offset="0%"   stopColor="#3a7bd5" stopOpacity="0.4" />
-              <stop offset="55%"  stopColor="#3a7bd5" />
+            <linearGradient id="tl-g" x1="0" y1="0" x2="96" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0%"   stopColor="#3a7bd5" stopOpacity="0.3" />
+              <stop offset="50%"  stopColor="#3a7bd5" />
               <stop offset="100%" stopColor="#3bf0ff" />
             </linearGradient>
-            <filter id="tl-glow" x="-10%" y="-80%" width="120%" height="260%">
-              <feGaussianBlur in="SourceAlpha" stdDeviation="1.5" result="b" />
+            <filter id="tl-glow" x="-5%" y="-100%" width="110%" height="300%">
+              <feGaussianBlur in="SourceAlpha" stdDeviation="1.2" result="b" />
               <feColorMatrix in="b" type="matrix"
-                values="0 0 0 0 0.23  0 0 0 0 0.94  0 0 0 0 1  0 0 0 0.45 0" result="g" />
+                values="0 0 0 0 0.23  0 0 0 0 0.94  0 0 0 0 1  0 0 0 0.4 0" result="g" />
               <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
             </filter>
           </defs>
 
-          {/* Rising trendline — ends exactly at bracket corner (120, 1) */}
+          {/* Trendline ending exactly at bracket corner (86, 1) */}
           <path
-            d="M0,11 L62,11 L86,8 L120,1"
+            d="M0,9 L44,9 L62,6 L86,1"
             stroke="url(#tl-g)"
-            strokeWidth="1.6"
+            strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
             filter="url(#tl-glow)"
           />
 
-          {/* Bracket: corner at (120,1), both arms exactly 11px */}
+          {/* Bracket: corner at (86,1), arms 9px right and 9px down */}
           <path
-            d="M120,1 L131,1 L131,12"
+            d="M86,1 L95,1 L95,10"
             stroke="url(#tl-g)"
-            strokeWidth="1.6"
+            strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
             filter="url(#tl-glow)"
