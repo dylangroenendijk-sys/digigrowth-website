@@ -7,12 +7,18 @@ const steps = [
   },
   {
     num: '02',
-    title: 'AI Qualifies Every Lead Instantly',
-    desc: 'The moment a lead comes in, our AI engages them via SMS and email — within 60 seconds, around the clock. It qualifies, handles objections, and moves them toward a booking automatically.',
-    tag: 'AI AUTOMATION',
+    title: 'We Reactivate Your Dead Leads',
+    desc: 'Before spending more on ads, we go through your existing database. Our parallel dialer contacts up to 10 leads simultaneously while AI SMS sequences run in parallel — recovering revenue from leads you already paid for.',
+    tag: 'DATABASE REACTIVATION',
   },
   {
     num: '03',
+    title: 'AI Qualifies Every Lead Instantly',
+    desc: 'The moment a lead comes in — from ads or reactivation — our AI engages them via SMS and email within 60 seconds, around the clock. It qualifies, handles objections, and moves them toward a booking automatically.',
+    tag: 'AI AUTOMATION',
+  },
+  {
+    num: '04',
     title: 'Clients Book Directly On Your Calendar',
     desc: 'Pre-qualified prospects schedule themselves onto your calendar. You get notified, you show up, you close. No chasing, no back-and-forth, no wasted time.',
     tag: 'CONVERSION',
@@ -66,7 +72,7 @@ export default function HowItWorks() {
 
   const grid = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridTemplateColumns: 'repeat(4, 1fr)',
     gap: 2,
     position: 'relative',
   }
@@ -130,7 +136,7 @@ export default function HowItWorks() {
       <div style={inner}>
         <div style={header}>
           <p style={eyebrow}>The Process</p>
-          <h2 style={h2}>From Zero to Full Pipeline<br />in Three Steps</h2>
+          <h2 style={h2}>From Zero to Full Pipeline<br />in Four Steps</h2>
         </div>
         <div style={grid}>
           {steps.map(s => (
