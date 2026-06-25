@@ -3,6 +3,7 @@ import Problem from '../components/Problem'
 import HowItWorks from '../components/HowItWorks'
 import Services from '../components/Services'
 import AISection from '../components/AISection'
+import CTA from '../components/CTA'
 import Footer from '../components/Footer'
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <HowItWorks />
       <Services />
       <AISection />
+      <CTA />
       <Footer />
     </main>
   )

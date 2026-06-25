@@ -1,187 +1,241 @@
-const features = [
-  {
-    label: 'RESPONSE TIME',
-    value: '< 60 sec',
-    desc: 'Every inbound lead gets an AI-powered SMS response within 60 seconds — day or night, weekends included.',
-  },
-  {
-    label: 'AVAILABILITY',
-    value: '24 / 7 / 365',
-    desc: 'Our AI never clocks out. While you\'re sleeping, it\'s qualifying leads, answering questions, and booking appointments.',
-  },
-  {
-    label: 'FOLLOW-UP TOUCHES',
-    value: 'Multi-Channel',
-    desc: 'SMS, email, and voicemail drops work together in automated sequences designed to convert leads who don\'t respond immediately.',
-  },
-  {
-    label: 'HUMAN INVOLVEMENT',
-    value: 'Zero',
-    desc: 'From first contact to booked call, the entire qualification process is handled by AI. You only step in to close.',
-  },
+import { useEffect, useRef, useState } from 'react'
+
+const terminalLines = [
+  { delay: 0,    color: '#4a5a7c', text: '[00:00:00] New lead detected — James R.' },
+  { delay: 600,  color: '#14c882', text: '[00:00:03] AI agent initialized' },
+  { delay: 1200, color: '#3a7bd5', text: '[00:00:08] SMS sent → "Hey James, saw you..."' },
+  { delay: 2000, color: '#4a5a7c', text: '[00:02:14] Lead replied — interest confirmed' },
+  { delay: 2600, color: '#3a7bd5', text: '[00:02:16] Qualifying sequence triggered' },
+  { delay: 3400, color: '#4a5a7c', text: '[00:04:51] Objection handled → pricing' },
+  { delay: 4200, color: '#14c882', text: '[00:07:33] Appointment booked ✓' },
+  { delay: 4800, color: '#4a5a7c', text: '[00:07:33] CRM updated — no human involved' },
 ]
+
+const features = [
+  { label: 'RESPONSE TIME', value: '< 60 sec', desc: 'AI contacts every lead within 60 seconds of opt-in, day or night.' },
+  { label: 'AVAILABILITY',  value: '24 / 7',   desc: 'While you sleep, the AI is qualifying leads and booking appointments.' },
+  { label: 'FOLLOW-UP',     value: 'Multi-Channel', desc: 'SMS, email, and voicemail sequences work together to convert cold leads.' },
+  { label: 'HUMAN INPUT',   value: 'Zero',     desc: 'From first touch to booked call — fully automated, no manual work.' },
+]
+
+function AnimatedTerminal() {
+  const [visible, setVisible] = useState([])
+  const [started, setStarted] = useState(false)
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting && !started) setStarted(true) },
+      { threshold: 0.3 }
+    )
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [started])
+
+  useEffect(() => {
+    if (!started) return
+    terminalLines.forEach((line, i) => {
+      setTimeout(() => setVisible(v => [...v, i]), line.delay)
+    })
+  }, [started])
+
+  const box = {
+    background: '#040810',
+    border: '1px solid rgba(58,123,213,0.2)',
+    borderRadius: 10,
+    overflow: 'hidden',
+    fontFamily: "'Share Tech Mono', monospace",
+    fontSize: 12,
+    lineHeight: 1.8,
+    boxShadow: '0 0 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(58,123,213,0.05)',
+  }
+
+  const header = {
+    padding: '12px 18px',
+    borderBottom: '1px solid rgba(58,123,213,0.12)',
+    display: 'flex',
+    alignItems: 'center',
+    gap: 7,
+    background: 'rgba(10,18,40,0.6)',
+  }
+
+  const dot = (c) => ({ width: 10, height: 10, borderRadius: '50%', background: c })
+
+  const title = {
+    fontSize: 11,
+    color: '#4a5a7c',
+    letterSpacing: '1px',
+    marginLeft: 10,
+  }
+
+  const body = {
+    padding: '24px 22px',
+    minHeight: 220,
+  }
+
+  const cursor = {
+    display: 'inline-block',
+    width: 8,
+    height: 14,
+    background: '#3a7bd5',
+    marginLeft: 4,
+    verticalAlign: 'middle',
+    animation: 'blink 1s step-end infinite',
+  }
+
+  return (
+    <div ref={ref} style={box}>
+      <div style={header}>
+        <span style={dot('#ff5f57')} />
+        <span style={dot('#febc2e')} />
+        <span style={dot('#28c840')} />
+        <span style={title}>digigrowth — lead_agent.ai</span>
+      </div>
+      <div style={body}>
+        {terminalLines.map((line, i) => (
+          visible.includes(i) ? (
+            <div key={i} style={{ color: line.color, animation: 'terminal-line 0.3s ease both' }}>
+              {line.text}
+            </div>
+          ) : null
+        ))}
+        {visible.length > 0 && visible.length < terminalLines.length && (
+          <span style={cursor} />
+        )}
+      </div>
+    </div>
+  )
+}
 
 export default function AISection() {
   const section = {
-    padding: '100px 24px',
-    background: 'rgba(13, 21, 53, 0.35)',
-    borderTop: '1px solid rgba(58, 123, 213, 0.1)',
-    borderBottom: '1px solid rgba(58, 123, 213, 0.1)',
+    padding: '120px 24px',
+    position: 'relative',
+  }
+
+  const bgStripe = {
+    position: 'absolute',
+    inset: 0,
+    background: 'rgba(10, 18, 40, 0.5)',
+    borderTop: '1px solid rgba(58,123,213,0.08)',
+    borderBottom: '1px solid rgba(58,123,213,0.08)',
   }
 
   const inner = {
     maxWidth: 1100,
     margin: '0 auto',
+    position: 'relative',
+    zIndex: 1,
   }
 
   const topRow = {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
-    gap: 80,
+    gap: 72,
     alignItems: 'center',
     marginBottom: 72,
   }
 
   const eyebrow = {
     fontSize: 11,
-    fontWeight: 500,
+    fontWeight: 600,
     color: '#14c882',
-    letterSpacing: '2.5px',
+    letterSpacing: '3px',
     textTransform: 'uppercase',
-    marginBottom: 16,
+    marginBottom: 18,
     fontFamily: "'Share Tech Mono', monospace",
   }
 
   const h2 = {
-    fontSize: 'clamp(26px, 3.5vw, 42px)',
-    fontWeight: 700,
-    letterSpacing: '-0.8px',
+    fontSize: 'clamp(28px, 4vw, 48px)',
+    fontWeight: 800,
+    letterSpacing: '-1px',
     color: '#fff',
-    lineHeight: 1.2,
-    marginBottom: 20,
+    lineHeight: 1.15,
+    marginBottom: 22,
   }
 
-  const accent = { color: '#3a7bd5' }
+  const gradientText = {
+    background: 'linear-gradient(135deg, #5a96f0, #14c882)',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    backgroundClip: 'text',
+  }
 
   const desc = {
     fontSize: 16,
     color: '#8a9bc4',
-    lineHeight: 1.75,
+    lineHeight: 1.8,
   }
-
-  const terminalBox = {
-    background: '#060b1a',
-    border: '1px solid rgba(58, 123, 213, 0.2)',
-    borderRadius: 8,
-    overflow: 'hidden',
-    fontFamily: "'Share Tech Mono', monospace",
-  }
-
-  const terminalHeader = {
-    padding: '10px 16px',
-    borderBottom: '1px solid rgba(58, 123, 213, 0.15)',
-    display: 'flex',
-    alignItems: 'center',
-    gap: 8,
-  }
-
-  const terminalDot = (color) => ({
-    width: 10,
-    height: 10,
-    borderRadius: '50%',
-    background: color,
-  })
-
-  const terminalTitle = {
-    fontSize: 11,
-    color: '#8a9bc4',
-    letterSpacing: '1px',
-    marginLeft: 8,
-  }
-
-  const terminalBody = {
-    padding: '24px',
-    fontSize: 12,
-    lineHeight: 2,
-  }
-
-  const tLine = (color = '#8a9bc4') => ({
-    color,
-    display: 'block',
-  })
 
   const grid = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-    gap: 1,
-    background: 'rgba(58, 123, 213, 0.1)',
-    border: '1px solid rgba(58, 123, 213, 0.12)',
-    borderRadius: 8,
+    gridTemplateColumns: 'repeat(4, 1fr)',
+    gap: 2,
+    borderRadius: 10,
     overflow: 'hidden',
+    border: '1px solid rgba(58,123,213,0.1)',
   }
 
   const card = {
-    padding: '32px 28px',
-    background: '#090f26',
+    padding: '28px 24px',
+    background: 'rgba(6, 12, 31, 0.9)',
+    transition: 'background 0.2s',
   }
 
   const cardLabel = {
-    fontSize: 10,
+    fontSize: 9,
     fontFamily: "'Share Tech Mono', monospace",
     color: '#3a7bd5',
-    letterSpacing: '2px',
-    marginBottom: 12,
+    letterSpacing: '2.5px',
+    marginBottom: 10,
     display: 'block',
+    opacity: 0.8,
   }
 
   const cardValue = {
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: 700,
     color: '#fff',
-    letterSpacing: '-0.5px',
-    marginBottom: 12,
+    letterSpacing: '-0.3px',
+    marginBottom: 10,
     fontFamily: "'Share Tech Mono', monospace",
   }
 
   const cardDesc = {
-    fontSize: 14,
+    fontSize: 13,
     color: '#8a9bc4',
-    lineHeight: 1.65,
+    lineHeight: 1.6,
   }
 
   return (
     <section id="ai" style={section}>
+      <div style={bgStripe} />
       <div style={inner}>
         <div style={topRow}>
           <div>
             <p style={eyebrow}>Powered by AI</p>
-            <h2 style={h2}>The Engine Behind<br /><span style={accent}>Every Lead.</span></h2>
+            <h2 style={h2}>
+              The Engine Behind<br />
+              <span style={gradientText}>Every Lead.</span>
+            </h2>
             <p style={desc}>
-              Most agencies hand you leads and walk away. DigiGrowth runs the entire process — including an AI system that contacts, qualifies, and nurtures every lead from the moment they respond to your ad. No manual follow-up. No leads falling through the cracks. No delays.
+              Most agencies hand you leads and walk away. DigiGrowth runs the entire process with an AI system that contacts, qualifies, and nurtures every lead from the moment they respond to your ad. No manual follow-up. No leads falling through the cracks. No delays.
             </p>
           </div>
-          <div style={terminalBox}>
-            <div style={terminalHeader}>
-              <span style={terminalDot('#ff5f57')} />
-              <span style={terminalDot('#febc2e')} />
-              <span style={terminalDot('#28c840')} />
-              <span style={terminalTitle}>digigrowth — lead_agent.ai</span>
-            </div>
-            <div style={terminalBody}>
-              <span style={tLine('#8a9bc4')}>[00:00:00] New lead detected — Sarah M.</span>
-              <span style={tLine('#14c882')}>[00:00:03] AI agent initialized</span>
-              <span style={tLine('#3a7bd5')}>[00:00:08] SMS sent → "Hey Sarah, saw you..."</span>
-              <span style={tLine('#8a9bc4')}>[00:02:14] Lead replied — interest confirmed</span>
-              <span style={tLine('#3a7bd5')}>[00:02:16] AI qualifying sequence triggered</span>
-              <span style={tLine('#8a9bc4')}>[00:04:51] Objection handled → budget</span>
-              <span style={tLine('#14c882')}>[00:07:33] Appointment booked ✓</span>
-              <span style={tLine('#8a9bc4')}>[00:07:33] Calendar updated — no human involved</span>
-            </div>
-          </div>
+          <AnimatedTerminal />
         </div>
         <div style={grid}>
-          {features.map(f => (
-            <div key={f.label} style={card}>
+          {features.map((f, i) => (
+            <div
+              key={f.label}
+              style={{
+                ...card,
+                borderLeft: i > 0 ? '1px solid rgba(58,123,213,0.1)' : 'none',
+              }}
+              onMouseEnter={e => (e.currentTarget.style.background = 'rgba(12,22,50,0.95)')}
+              onMouseLeave={e => (e.currentTarget.style.background = 'rgba(6,12,31,0.9)')}
+            >
               <span style={cardLabel}>{f.label}</span>
               <div style={cardValue}>{f.value}</div>
               <div style={cardDesc}>{f.desc}</div>

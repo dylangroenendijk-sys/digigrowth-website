@@ -18,85 +18,113 @@ const problems = [
 
 export default function Problem() {
   const section = {
-    padding: '100px 24px',
+    padding: '120px 24px',
     maxWidth: 1100,
     margin: '0 auto',
   }
 
   const header = {
     textAlign: 'center',
-    marginBottom: 64,
+    marginBottom: 72,
   }
 
   const eyebrow = {
     fontSize: 11,
-    fontWeight: 500,
+    fontWeight: 600,
     color: '#3a7bd5',
-    letterSpacing: '2.5px',
+    letterSpacing: '3px',
     textTransform: 'uppercase',
-    marginBottom: 16,
+    marginBottom: 18,
     fontFamily: "'Share Tech Mono', monospace",
   }
 
   const h2 = {
-    fontSize: 'clamp(26px, 3.5vw, 42px)',
-    fontWeight: 700,
-    letterSpacing: '-0.8px',
+    fontSize: 'clamp(28px, 4vw, 48px)',
+    fontWeight: 800,
+    letterSpacing: '-1px',
     color: '#fff',
-    lineHeight: 1.2,
+    lineHeight: 1.15,
   }
 
   const grid = {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-    gap: 1,
-    background: 'rgba(58, 123, 213, 0.12)',
-    border: '1px solid rgba(58, 123, 213, 0.12)',
-    borderRadius: 8,
-    overflow: 'hidden',
+    gap: 20,
   }
 
-  const card = {
-    padding: '40px 36px',
-    background: '#090f26',
-  }
+  const card = (hovered) => ({
+    padding: '44px 40px',
+    background: hovered ? 'rgba(15, 25, 60, 0.9)' : 'rgba(10, 18, 40, 0.7)',
+    border: hovered ? '1px solid rgba(58,123,213,0.4)' : '1px solid rgba(58,123,213,0.12)',
+    borderRadius: 12,
+    backdropFilter: 'blur(16px)',
+    transition: 'all 0.3s ease',
+    boxShadow: hovered ? '0 0 40px rgba(58,123,213,0.08), inset 0 1px 0 rgba(255,255,255,0.05)' : 'inset 0 1px 0 rgba(255,255,255,0.03)',
+    cursor: 'default',
+    borderLeftWidth: 2,
+    borderLeftStyle: 'solid',
+    borderLeftColor: hovered ? '#3a7bd5' : 'rgba(58,123,213,0.2)',
+  })
 
   const numStyle = {
     fontSize: 11,
     fontFamily: "'Share Tech Mono', monospace",
     color: '#3a7bd5',
     letterSpacing: '2px',
-    marginBottom: 20,
+    marginBottom: 16,
+    opacity: 0.7,
   }
 
   const cardTitle = {
-    fontSize: 18,
-    fontWeight: 600,
+    fontSize: 20,
+    fontWeight: 700,
     color: '#fff',
-    marginBottom: 12,
+    marginBottom: 14,
     letterSpacing: '-0.3px',
   }
 
   const cardDesc = {
     fontSize: 15,
     color: '#8a9bc4',
-    lineHeight: 1.7,
+    lineHeight: 1.75,
   }
 
   return (
     <section style={section}>
       <div style={header}>
         <p style={eyebrow}>The Problem</p>
-        <h2 style={h2}>Growth Stalls When There's No System Behind It</h2>
+        <h2 style={h2}>Growth Stalls When There's<br />No System Behind It</h2>
       </div>
       <div style={grid}>
-        {problems.map(p => (
-          <div key={p.id} style={card}>
-            <div style={numStyle}>// {p.id}</div>
-            <div style={cardTitle}>{p.title}</div>
-            <div style={cardDesc}>{p.desc}</div>
-          </div>
-        ))}
+        {problems.map(p => {
+          let hovered = false
+          return (
+            <div
+              key={p.id}
+              style={card(false)}
+              onMouseEnter={e => {
+                const el = e.currentTarget
+                el.style.background = 'rgba(15,25,60,0.9)'
+                el.style.borderColor = 'rgba(58,123,213,0.4)'
+                el.style.borderLeftColor = '#3a7bd5'
+                el.style.boxShadow = '0 0 40px rgba(58,123,213,0.08), inset 0 1px 0 rgba(255,255,255,0.05)'
+                el.style.transform = 'translateY(-3px)'
+              }}
+              onMouseLeave={e => {
+                const el = e.currentTarget
+                el.style.background = 'rgba(10,18,40,0.7)'
+                el.style.borderColor = 'rgba(58,123,213,0.12)'
+                el.style.borderLeftColor = 'rgba(58,123,213,0.2)'
+                el.style.boxShadow = 'inset 0 1px 0 rgba(255,255,255,0.03)'
+                el.style.transform = 'translateY(0)'
+              }}
+            >
+              <div style={numStyle}>// {p.id}</div>
+              <div style={cardTitle}>{p.title}</div>
+              <div style={cardDesc}>{p.desc}</div>
+            </div>
+          )
+        })}
       </div>
     </section>
   )
