@@ -76,7 +76,7 @@ export default function Services() {
   }
 
   const getCard = (accent) => ({
-    padding: '44px 40px',
+    padding: '32px 28px',
     background: 'rgba(10, 18, 40, 0.7)',
     border: '1px solid rgba(58,123,213,0.1)',
     borderRadius: 12,
@@ -106,10 +106,10 @@ export default function Services() {
   }
 
   const cardDesc = {
-    fontSize: 15,
+    fontSize: 14,
     color: '#8a9bc4',
-    lineHeight: 1.75,
-    marginBottom: 32,
+    lineHeight: 1.7,
+    marginBottom: 24,
   }
 
   const divider = (accent) => ({
