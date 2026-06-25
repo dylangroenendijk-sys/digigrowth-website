@@ -39,7 +39,7 @@ export default function Logo({ size = 30 }) {
       <svg
         width={W}
         height={H}
-        viewBox="0 0 144 38"
+        viewBox="0 0 144 42"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -77,7 +77,7 @@ export default function Logo({ size = 30 }) {
 
         {/* Trendline: flat → rising, bracket corner exactly at (128, 15) */}
         <path
-          d="M0,31 L70,31 L93,27 L128,15"
+          d="M0,34 L70,34 L93,30 L128,18"
           stroke="url(#tl-g)"
           strokeWidth="1.5"
           strokeLinecap="round"
@@ -87,7 +87,7 @@ export default function Logo({ size = 30 }) {
 
         {/* Chevron > at end of trendline */}
         <path
-          d="M120,10 L128,15 L120,20"
+          d="M120,13 L128,18 L120,23"
           stroke="url(#tl-g)"
           strokeWidth="1.5"
           strokeLinecap="round"
