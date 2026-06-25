@@ -221,7 +221,7 @@ export default function AISection() {
               <span style={gradientText}>Every Lead.</span>
             </h2>
             <p style={desc}>
-              Most agencies hand you leads and walk away. DigiGrowth runs the entire process with an AI system that contacts, qualifies, and nurtures every lead from the moment they respond to your ad. No manual follow-up. No leads falling through the cracks. No delays.
+              Most agencies hand you leads and walk away. DigiGrowth runs the entire process with an AI system that contacts, qualifies, and nurtures every lead — whether they just came in from an ad or have been sitting cold in your CRM for months. No manual follow-up. No leads falling through the cracks. No delays.
             </p>
           </div>
           <AnimatedTerminal />
