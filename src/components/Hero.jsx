@@ -229,18 +229,18 @@ export default function Hero() {
         <div style={content}>
           <div style={badge}>
             <span style={dot} />
-            AI-Powered Client Acquisition
+            Done-For-You Digital Growth
           </div>
 
           <h1 style={h1}>
-            Your Pipeline, Built<br />
-            and Run by{' '}
-            <span style={gradientText}>AI.</span>
+            We Run Your Entire<br />
+            Digital{' '}
+            <span style={gradientText}>Growth Engine.</span>
           </h1>
 
           <p style={sub}>
-            DigiGrowth handles your entire client acquisition system — ads, AI-driven lead qualification,
-            and automated follow-up — so your calendar fills itself while you run your business.
+            DigiGrowth takes over your full digital client acquisition system — ads, lead qualification,
+            and follow-up, powered by AI — so your calendar fills itself while you run your business.
           </p>
 
           <div style={ctaRow}>
@@ -265,7 +265,7 @@ export default function Hero() {
 
           <div style={statsRow}>
             {[
-              { num: '24/7', label: 'AI Follow-Up', mid: false },
+              { num: '24/7', label: 'Automated Follow-Up', mid: false },
               { num: '<60s', label: 'Lead Response', mid: true },
               { num: '100%', label: 'Done For You', mid: false },
             ].map((s) => (

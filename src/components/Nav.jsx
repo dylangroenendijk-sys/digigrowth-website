@@ -78,7 +78,7 @@ export default function Nav() {
             onMouseEnter={e => (e.target.style.color = '#e8edf8')}
             onMouseLeave={e => (e.target.style.color = '#8a9bc4')}
           >
-            {['Services', 'How It Works', 'AI System'][i]}
+            {['Services', 'How It Works', 'The Engine'][i]}
           </span>
         ))}
         <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">

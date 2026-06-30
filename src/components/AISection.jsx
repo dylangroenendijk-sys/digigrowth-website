@@ -215,7 +215,7 @@ export default function AISection() {
       <div style={inner}>
         <div style={topRow}>
           <div>
-            <p style={eyebrow}>Powered by AI</p>
+            <p style={eyebrow}>Always On, Always Working</p>
             <h2 style={h2}>
               The Engine Behind<br />
               <span style={gradientText}>Every Lead.</span>

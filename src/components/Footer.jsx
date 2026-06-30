@@ -59,7 +59,7 @@ export default function Footer() {
       <div style={inner}>
         <div style={left}>
           <Logo size={24} />
-          <span style={tagline}>AI-Powered Client Acquisition</span>
+          <span style={tagline}>Done-For-You Digital Growth</span>
           <span style={copy}>© {new Date().getFullYear()} DigiGrowth LLC</span>
         </div>
         <div style={rightLinks}>
