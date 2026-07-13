@@ -3,12 +3,17 @@ import Footer from '../components/Footer'
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xwvdlwvq'
 const CALENDLY_URL = 'https://calendly.com/dylanrg-digigrowthllc/30min'
+const PRIVACY_URL = 'https://digigrowth-brain-production.up.railway.app/privacy'
+const TERMS_URL = 'https://digigrowth-brain-production.up.railway.app/terms'
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', business: '', email: '', phone: '', message: '' })
+  const [form, setForm] = useState({ name: '', business: '', email: '', phone: '', message: '', smsConsent: false })
   const [status, setStatus] = useState('idle')
 
-  const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
+  const handleChange = e => {
+    const { name, type, checked, value } = e.target
+    setForm(f => ({ ...f, [name]: type === 'checkbox' ? checked : value }))
+  }
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -21,7 +26,7 @@ export default function Contact() {
       })
       if (res.ok) {
         setStatus('success')
-        setForm({ name: '', business: '', email: '', phone: '', message: '' })
+        setForm({ name: '', business: '', email: '', phone: '', message: '', smsConsent: false })
       } else {
         setStatus('error')
       }
@@ -179,6 +184,29 @@ export default function Contact() {
     fontFamily: "'Share Tech Mono', monospace",
   }
 
+  const consentRow = {
+    display: 'flex',
+    alignItems: 'flex-start',
+    gap: 10,
+    marginBottom: 18,
+  }
+
+  const consentCheckbox = {
+    marginTop: 3,
+    width: 15,
+    height: 15,
+    flexShrink: 0,
+    accentColor: '#3a7bd5',
+  }
+
+  const consentLabel = {
+    fontSize: 12,
+    color: '#8a9bc4',
+    lineHeight: 1.6,
+  }
+
+  const consentLink = { color: '#3a7bd5' }
+
   const focusStyle = e => (e.target.style.borderColor = 'rgba(58,123,213,0.5)')
   const blurStyle = e => (e.target.style.borderColor = 'rgba(58,123,213,0.18)')
 
@@ -227,12 +255,31 @@ export default function Contact() {
                 </div>
                 <div style={group}>
                   <label style={label}>Phone</label>
-                  <input style={input} type="tel" name="phone" value={form.phone} onChange={handleChange} onFocus={focusStyle} onBlur={blurStyle} placeholder="(555) 000-0000" />
+                  <input style={input} type="tel" name="phone" value={form.phone} onChange={handleChange} onFocus={focusStyle} onBlur={blurStyle} placeholder="(555) 000-0000" required />
                 </div>
               </div>
               <div style={group}>
                 <label style={label}>Tell us about your business</label>
                 <textarea style={textarea} name="message" value={form.message} onChange={handleChange} onFocus={focusStyle} onBlur={blurStyle} placeholder="What does your business do? What's your biggest challenge with getting new clients?" />
+              </div>
+              <div style={consentRow}>
+                <input
+                  style={consentCheckbox}
+                  type="checkbox"
+                  id="smsConsent"
+                  name="smsConsent"
+                  checked={form.smsConsent}
+                  onChange={handleChange}
+                  required
+                />
+                <label htmlFor="smsConsent" style={consentLabel}>
+                  I agree to receive SMS text messages from DigiGrowth, LLC at the phone number
+                  provided regarding my inquiry. Message frequency varies. Msg &amp; data rates may
+                  apply. Reply STOP to opt out, HELP for help. See our{' '}
+                  <a href={PRIVACY_URL} target="_blank" rel="noopener noreferrer" style={consentLink}>Privacy Policy</a>
+                  {' '}and{' '}
+                  <a href={TERMS_URL} target="_blank" rel="noopener noreferrer" style={consentLink}>Terms of Service</a>.
+                </label>
               </div>
               <button
                 type="submit"
