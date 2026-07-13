@@ -53,7 +53,7 @@ export default function Footer() {
     gap: 24,
   }
 
-  const left = { display: 'flex', flexDirection: 'column', gap: 12 }
+  const left = { display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-start' }
 
   const tagline = {
     fontSize: 12,
@@ -115,13 +115,13 @@ export default function Footer() {
 
   return (
     <footer style={footer}>
-      <div style={inner}>
-        <div style={left}>
+      <div style={inner} className="footer-inner">
+        <div style={left} className="footer-block">
           <Logo size={24} />
           <span style={tagline}>Done-For-You Digital Growth</span>
           <span style={copy}>© {new Date().getFullYear()} DigiGrowth LLC</span>
         </div>
-        <div style={rightLinks}>
+        <div style={rightLinks} className="footer-block">
           <div style={socialRow}>
             {socialLinks.map(s => (
               <a

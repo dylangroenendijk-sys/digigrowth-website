@@ -32,6 +32,11 @@ a { color: inherit; text-decoration: none; }
   .nav-hamburger { display: flex !important; }
 }
 
+@media (max-width: 640px) {
+  .footer-inner { justify-content: center !important; text-align: center; }
+  .footer-block { align-items: center !important; }
+}
+
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--navy); }
 ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 3px; }
