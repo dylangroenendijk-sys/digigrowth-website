@@ -27,6 +27,11 @@ body {
 
 a { color: inherit; text-decoration: none; }
 
+@media (max-width: 768px) {
+  .nav-desktop-links { display: none !important; }
+  .nav-hamburger { display: flex !important; }
+}
+
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--navy); }
 ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 3px; }

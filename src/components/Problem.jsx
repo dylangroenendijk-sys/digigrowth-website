@@ -18,7 +18,7 @@ const problems = [
 
 export default function Problem() {
   const section = {
-    padding: '120px 24px',
+    padding: 'clamp(64px, 14vw, 120px) 24px',
     maxWidth: 1100,
     margin: '0 auto',
   }

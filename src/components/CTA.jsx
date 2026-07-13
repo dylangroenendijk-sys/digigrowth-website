@@ -2,7 +2,7 @@ const CALENDLY_URL = 'https://calendly.com/dylanrg-digigrowthllc/30min'
 
 export default function CTA() {
   const section = {
-    padding: '140px 24px',
+    padding: 'clamp(72px, 16vw, 140px) 24px',
     textAlign: 'center',
     position: 'relative',
     overflow: 'hidden',

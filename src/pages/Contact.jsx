@@ -81,7 +81,7 @@ export default function Contact() {
   }
 
   const card = {
-    padding: '44px 40px',
+    padding: 'clamp(28px, 6vw, 44px) clamp(20px, 5vw, 40px)',
     background: 'rgba(13, 21, 53, 0.7)',
     border: '1px solid rgba(58, 123, 213, 0.18)',
     borderRadius: 8,
@@ -90,7 +90,7 @@ export default function Contact() {
 
   const row = {
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
     gap: 16,
   }
 

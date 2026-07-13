@@ -27,7 +27,7 @@ const steps = [
 
 export default function HowItWorks() {
   const section = {
-    padding: '120px 24px',
+    padding: 'clamp(64px, 14vw, 120px) 24px',
     position: 'relative',
   }
 
@@ -72,13 +72,13 @@ export default function HowItWorks() {
 
   const grid = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(4, 1fr)',
-    gap: 2,
+    gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+    gap: 20,
     position: 'relative',
   }
 
   const card = {
-    padding: '44px 40px',
+    padding: 'clamp(28px, 6vw, 44px) clamp(24px, 5vw, 40px)',
     position: 'relative',
     background: 'rgba(6, 12, 31, 0.8)',
     border: '1px solid rgba(58,123,213,0.1)',

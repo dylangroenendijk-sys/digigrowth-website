@@ -109,7 +109,7 @@ function AnimatedTerminal() {
 
 export default function AISection() {
   const section = {
-    padding: '120px 24px',
+    padding: 'clamp(64px, 14vw, 120px) 24px',
     position: 'relative',
   }
 
@@ -130,10 +130,10 @@ export default function AISection() {
 
   const topRow = {
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
-    gap: 72,
+    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+    gap: 'clamp(32px, 6vw, 72px)',
     alignItems: 'center',
-    marginBottom: 72,
+    marginBottom: 'clamp(40px, 8vw, 72px)',
   }
 
   const eyebrow = {
@@ -171,8 +171,8 @@ export default function AISection() {
 
   const grid = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(4, 1fr)',
-    gap: 2,
+    gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+    gap: 1,
     borderRadius: 10,
     overflow: 'hidden',
     border: '1px solid rgba(58,123,213,0.1)',
@@ -181,6 +181,7 @@ export default function AISection() {
   const card = {
     padding: '28px 24px',
     background: 'rgba(6, 12, 31, 0.9)',
+    border: '1px solid rgba(58,123,213,0.1)',
     transition: 'background 0.2s',
   }
 
@@ -227,13 +228,10 @@ export default function AISection() {
           <AnimatedTerminal />
         </div>
         <div style={grid}>
-          {features.map((f, i) => (
+          {features.map((f) => (
             <div
               key={f.label}
-              style={{
-                ...card,
-                borderLeft: i > 0 ? '1px solid rgba(58,123,213,0.1)' : 'none',
-              }}
+              style={card}
               onMouseEnter={e => (e.currentTarget.style.background = 'rgba(12,22,50,0.95)')}
               onMouseLeave={e => (e.currentTarget.style.background = 'rgba(6,12,31,0.9)')}
             >

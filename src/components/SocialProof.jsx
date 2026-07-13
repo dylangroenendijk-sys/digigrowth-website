@@ -27,7 +27,7 @@ const stats = [
 
 export default function SocialProof() {
   const section = {
-    padding: '120px 24px',
+    padding: 'clamp(64px, 14vw, 120px) 24px',
     maxWidth: 1100,
     margin: '0 auto',
   }
@@ -67,7 +67,7 @@ export default function SocialProof() {
 
   const grid = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(4, 1fr)',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
     gap: 20,
   }
 
