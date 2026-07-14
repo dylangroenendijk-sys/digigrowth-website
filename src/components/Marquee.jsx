@@ -1,6 +1,9 @@
+const GUARANTEE_ITEM = '$5K–$10K IN NEW MONTHLY BUSINESS, GUARANTEED'
+
 const items = [
   'META ADS MANAGEMENT',
   'AI LEAD QUALIFICATION',
+  GUARANTEE_ITEM,
   'DATABASE REACTIVATION',
   'CALENDAR AUTOMATION',
   'SMS + EMAIL SEQUENCES',
@@ -70,6 +73,17 @@ export default function Marquee() {
     flexShrink: 0,
   }
 
+  const highlightItemStyle = {
+    ...itemStyle,
+    color: '#fff',
+    fontWeight: 700,
+  }
+
+  const highlightDotStyle = {
+    ...dotStyle,
+    background: '#14c882',
+  }
+
   const allItems = [...items, ...items]
 
   return (
@@ -77,12 +91,15 @@ export default function Marquee() {
       <div style={fadeLeft} />
       <div style={fadeRight} />
       <div style={track}>
-        {allItems.map((item, i) => (
-          <div key={i} style={itemStyle}>
-            <span style={dotStyle} />
-            {item}
-          </div>
-        ))}
+        {allItems.map((item, i) => {
+          const isGuarantee = item === GUARANTEE_ITEM
+          return (
+            <div key={i} style={isGuarantee ? highlightItemStyle : itemStyle}>
+              <span style={isGuarantee ? highlightDotStyle : dotStyle} />
+              {item}
+            </div>
+          )
+        })}
       </div>
     </div>
   )

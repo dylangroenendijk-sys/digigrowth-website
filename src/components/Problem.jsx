@@ -53,14 +53,6 @@ export default function Problem() {
     gap: 20,
   }
 
-  const guarantee = {
-    fontSize: 16,
-    fontWeight: 700,
-    color: '#14c882',
-    marginTop: 18,
-    letterSpacing: '0.2px',
-  }
-
   const card = (hovered) => ({
     padding: '44px 40px',
     background: hovered ? 'rgba(15, 25, 60, 0.9)' : 'rgba(10, 18, 40, 0.7)',
@@ -103,7 +95,6 @@ export default function Problem() {
       <div style={header}>
         <p style={eyebrow}>The Problem</p>
         <h2 style={h2}>Growth Stalls When There's<br />No System Behind It</h2>
-        <p style={guarantee}>Fix it and we guarantee $5,000–$10,000 in new monthly business.</p>
       </div>
       <div style={grid}>
         {problems.map(p => {

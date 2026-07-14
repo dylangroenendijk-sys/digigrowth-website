@@ -128,17 +128,14 @@ export default function Hero() {
     color: '#8a9bc4',
     lineHeight: 1.75,
     maxWidth: 600,
-    margin: '0 auto 20px',
+    margin: '0 auto 52px',
     fontWeight: 300,
     letterSpacing: '0.1px',
   }
 
-  const guarantee = {
-    fontSize: 'clamp(15px, 2vw, 17px)',
-    fontWeight: 700,
-    color: '#14c882',
-    marginBottom: 44,
-    letterSpacing: '0.2px',
+  const highlight = {
+    color: '#fff',
+    fontWeight: 600,
   }
 
   const ctaRow = {
@@ -247,10 +244,9 @@ export default function Hero() {
 
           <p style={sub}>
             DigiGrowth takes over your full digital client acquisition system — ads, lead qualification,
-            and follow-up, powered by AI — so your calendar fills itself while you run your business.
+            and follow-up, powered by AI — so your calendar fills itself with{' '}
+            <span style={highlight}>$5,000–$10,000 in new monthly business</span>, guaranteed, while you run your business.
           </p>
-
-          <p style={guarantee}>$5,000–$10,000 in new monthly business — guaranteed.</p>
 
           <div style={ctaRow}>
             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
