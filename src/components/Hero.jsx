@@ -243,7 +243,8 @@ export default function Hero() {
           </h1>
 
           <p style={sub}>
-            AI-run ads, lead qualification, and follow-up — fully managed, delivering{' '}
+            AI-backed ads, lead qualification, and follow-up — completely done-for-you,
+            delivering{' '}
             <span style={highlight}>$5,000–$10,000 in new monthly business</span>{' '}
             <span style={highlight}>guaranteed</span>.
           </p>
