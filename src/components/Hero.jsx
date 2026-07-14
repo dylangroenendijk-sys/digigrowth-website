@@ -233,9 +233,8 @@ export default function Hero() {
           </div>
 
           <h1 style={h1}>
-            We Run Your Entire<br />
-            Digital{' '}
-            <span style={gradientText}>Growth Engine.</span>
+            Digital Growth<br />
+            That <span style={gradientText}>Doesn't Need You.</span>
           </h1>
 
           <p style={sub}>
