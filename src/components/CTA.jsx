@@ -60,7 +60,15 @@ export default function CTA() {
     fontSize: 17,
     color: '#8a9bc4',
     lineHeight: 1.7,
-    marginBottom: 48,
+    marginBottom: 20,
+  }
+
+  const guarantee = {
+    fontSize: 16,
+    fontWeight: 700,
+    color: '#14c882',
+    marginBottom: 40,
+    letterSpacing: '0.2px',
   }
 
   const btn = {
@@ -102,6 +110,7 @@ export default function CTA() {
           Book a free 30-minute strategy call. We'll map out exactly how DigiGrowth
           would work for your business — no pitch, no pressure.
         </p>
+        <p style={guarantee}>$5,000–$10,000 in new monthly business — guaranteed.</p>
         <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
           <button
             style={btn}

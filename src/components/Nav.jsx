@@ -121,8 +121,8 @@ export default function Nav() {
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
 
-  const navIds = ['how-it-works', 'ai']
-  const navLabels = ['How It Works', 'The Engine']
+  const navIds = ['how-it-works']
+  const navLabels = ['How It Works']
 
   return (
     <nav style={nav}>
@@ -140,6 +140,15 @@ export default function Nav() {
             {navLabels[i]}
           </span>
         ))}
+        <Link
+          to="/contact"
+          style={linkStyle}
+          onClick={() => setMenuOpen(false)}
+          onMouseEnter={e => (e.target.style.color = '#e8edf8')}
+          onMouseLeave={e => (e.target.style.color = '#8a9bc4')}
+        >
+          Contact
+        </Link>
         <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
           <button
             style={ctaBtn}
@@ -169,6 +178,9 @@ export default function Nav() {
               {navLabels[i]}
             </span>
           ))}
+          <Link to="/contact" style={mobileLinkStyle} onClick={() => setMenuOpen(false)}>
+            Contact
+          </Link>
           <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>
             <button style={{ ...ctaBtn, padding: '14px 32px', fontSize: 15 }}>
               Book a Call
