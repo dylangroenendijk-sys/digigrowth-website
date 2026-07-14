@@ -87,14 +87,14 @@ export default function Nav() {
   const mobileLinkStyle = {
     fontSize: 20,
     fontWeight: 500,
-    color: '#e8edf8',
+    color: '#fff',
     cursor: 'pointer',
   }
 
   const linkStyle = {
     fontSize: 14,
-    fontWeight: 400,
-    color: '#8a9bc4',
+    fontWeight: 500,
+    color: '#e8edf8',
     transition: 'color 0.2s',
     cursor: 'pointer',
     letterSpacing: '0.1px',
@@ -134,8 +134,8 @@ export default function Nav() {
             key={id}
             style={linkStyle}
             onClick={() => scrollTo(id)}
-            onMouseEnter={e => (e.target.style.color = '#e8edf8')}
-            onMouseLeave={e => (e.target.style.color = '#8a9bc4')}
+            onMouseEnter={e => (e.target.style.color = '#fff')}
+            onMouseLeave={e => (e.target.style.color = '#e8edf8')}
           >
             {navLabels[i]}
           </span>
@@ -144,8 +144,8 @@ export default function Nav() {
           to="/contact"
           style={linkStyle}
           onClick={() => setMenuOpen(false)}
-          onMouseEnter={e => (e.target.style.color = '#e8edf8')}
-          onMouseLeave={e => (e.target.style.color = '#8a9bc4')}
+          onMouseEnter={e => (e.target.style.color = '#fff')}
+          onMouseLeave={e => (e.target.style.color = '#e8edf8')}
         >
           Contact
         </Link>

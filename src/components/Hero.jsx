@@ -243,10 +243,9 @@ export default function Hero() {
           </h1>
 
           <p style={sub}>
-            DigiGrowth takes over your full digital client acquisition system — ads, lead qualification,
-            and follow-up, powered by AI — so your calendar fills itself with{' '}
+            AI-run ads, lead qualification, and follow-up — fully managed, delivering{' '}
             <span style={highlight}>$5,000–$10,000 in new monthly business</span>{' '}
-            <span style={highlight}>guaranteed</span> while you run your business.
+            <span style={highlight}>guaranteed</span>.
           </p>
 
           <div style={ctaRow}>

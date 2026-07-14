@@ -5,29 +5,30 @@ export default function Logo({ size = 30 }) {
       {/* Diamond icon */}
       <svg width={size} height={size} viewBox="0 0 80 80" fill="none">
         <defs>
-          <linearGradient id="dg-g" x1="40" y1="0" x2="40" y2="80" gradientUnits="userSpaceOnUse">
-            <stop offset="0%"   stopColor="#60a5fa" />
-            <stop offset="100%" stopColor="#1d4ed8" />
+          <linearGradient id="dg-g" x1="10" y1="70" x2="70" y2="10" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stopColor="#5a96f0" />
+            <stop offset="60%"  stopColor="#3a7bd5" />
+            <stop offset="100%" stopColor="#14c882" />
           </linearGradient>
-          <linearGradient id="dg-d" x1="40" y1="0" x2="40" y2="80" gradientUnits="userSpaceOnUse">
-            <stop offset="0%"   stopColor="#3a7bd5" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#1d4ed8" stopOpacity="0.2" />
+          <linearGradient id="dg-d" x1="10" y1="70" x2="70" y2="10" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stopColor="#3a7bd5" stopOpacity="0.28" />
+            <stop offset="100%" stopColor="#14c882" stopOpacity="0.10" />
           </linearGradient>
-          <filter id="dg-glow" x="-30%" y="-30%" width="160%" height="160%">
-            <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur" />
+          <filter id="dg-glow" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2.2" result="blur" />
             <feColorMatrix in="blur" type="matrix"
-              values="0 0 0 0 0.25  0 0 0 0 0.55  0 0 0 0 1  0 0 0 0.5 0" result="glow" />
+              values="0 0 0 0 0.3  0 0 0 0 0.65  0 0 0 0 0.65  0 0 0 0.55 0" result="glow" />
             <feMerge><feMergeNode in="glow" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
         </defs>
-        <path d="M40,6 L76,42 L40,78 L4,42 Z"
-          stroke="url(#dg-g)" strokeWidth="2.2" strokeLinejoin="round" fill="url(#dg-d)" />
-        <path d="M27,71 L27,38 L23,38 L30,25 L37,38 L33,38 L33,71 Z"
-          fill="url(#dg-g)" opacity="0.82" />
-        <path d="M37,71 L37,18 L33,18 L40,2 L47,18 L43,18 L43,71 Z"
-          fill="url(#dg-g)" filter="url(#dg-glow)" />
-        <path d="M47,71 L47,38 L43,38 L50,25 L57,38 L53,38 L53,71 Z"
-          fill="url(#dg-g)" opacity="0.82" />
+        <path d="M40,5 L75,40 L40,75 L5,40 Z"
+          stroke="url(#dg-g)" strokeWidth="1.8" strokeLinejoin="round" fill="url(#dg-d)" />
+        <circle cx="24" cy="52" r="3.5" fill="url(#dg-g)" />
+        <path d="M24,52 L54,28"
+          stroke="url(#dg-g)" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"
+          fill="none" filter="url(#dg-glow)" />
+        <path d="M54,28 L54,36 M54,28 L46,28"
+          stroke="url(#dg-g)" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
       </svg>
 
       {/* Wordmark */}
@@ -40,7 +41,7 @@ export default function Logo({ size = 30 }) {
       }}>
         <span style={{ fontWeight: 500, color: '#bcd4ff' }}>Digi</span>
         <span style={{
-          background: 'linear-gradient(90deg, #60a5fa, #3a7bd5)',
+          background: 'linear-gradient(90deg, #5a96f0, #3a7bd5 55%, #14c882)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text',
