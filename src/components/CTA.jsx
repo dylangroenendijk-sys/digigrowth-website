@@ -57,15 +57,10 @@ export default function CTA() {
   }
 
   const sub = {
-    fontSize: 17,
+    fontSize: 'clamp(14px, 3.2vw, 15px)',
     color: '#8a9bc4',
-    lineHeight: 1.7,
+    lineHeight: 1.65,
     marginBottom: 48,
-  }
-
-  const highlight = {
-    color: '#fff',
-    fontWeight: 600,
   }
 
   const btn = {
@@ -104,9 +99,8 @@ export default function CTA() {
           <span style={gradientText}>On Autopilot.</span>
         </h2>
         <p style={sub}>
-          Book a free 30-minute strategy call. We'll map out exactly how DigiGrowth delivers{' '}
-          <span style={highlight}>$5,000–$10,000 in new monthly business</span> for you —
-          guaranteed, no pitch, no pressure.
+          Book a free 30-minute strategy call. We'll map out exactly how DigiGrowth delivers
+          $5,000–$10,000 in new monthly business for you — guaranteed, no pitch, no pressure.
         </p>
         <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
           <button
