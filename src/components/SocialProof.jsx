@@ -32,8 +32,22 @@ const stats = [
 export default function SocialProof() {
   const section = {
     padding: 'clamp(64px, 14vw, 120px) 24px',
+    position: 'relative',
+  }
+
+  const bgStripe = {
+    position: 'absolute',
+    inset: 0,
+    background: 'rgba(10, 18, 40, 0.5)',
+    borderTop: '1px solid rgba(58,123,213,0.08)',
+    borderBottom: '1px solid rgba(58,123,213,0.08)',
+  }
+
+  const inner = {
     maxWidth: 1100,
     margin: '0 auto',
+    position: 'relative',
+    zIndex: 1,
   }
 
   const header = {
@@ -137,54 +151,57 @@ export default function SocialProof() {
 
   return (
     <section style={section}>
-      <div style={header}>
-        <p style={eyebrow}>By The Numbers</p>
-        <h2 style={h2}>The Data Behind<br />Digital-First Growth</h2>
-        <p style={sub}>
-          This isn't just a pitch — it's what's already happening across small businesses
-          adopting AI-driven marketing and follow-up.
+      <div style={bgStripe} />
+      <div style={inner}>
+        <div style={header}>
+          <p style={eyebrow}>By The Numbers</p>
+          <h2 style={h2}>The Data Behind<br />Digital-First Growth</h2>
+          <p style={sub}>
+            This isn't just a pitch — it's what's already happening across small businesses
+            adopting AI-driven marketing and follow-up.
+          </p>
+        </div>
+        <div style={grid}>
+          {stats.map(s => (
+            <div
+              key={s.label}
+              style={card}
+              onMouseEnter={e => {
+                const el = e.currentTarget
+                el.style.borderColor = 'rgba(58,123,213,0.3)'
+                el.style.background = 'rgba(15, 25, 60, 0.95)'
+                el.style.transform = 'translateY(-4px)'
+                el.style.boxShadow = '0 20px 60px rgba(0,0,0,0.3)'
+              }}
+              onMouseLeave={e => {
+                const el = e.currentTarget
+                el.style.borderColor = 'rgba(58,123,213,0.1)'
+                el.style.background = 'rgba(10, 18, 40, 0.7)'
+                el.style.transform = 'translateY(0)'
+                el.style.boxShadow = 'none'
+              }}
+            >
+              <span style={label}>{s.label}</span>
+              <div style={value}>{s.value}</div>
+              <div style={desc}>{s.desc}</div>
+              <a
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={source}
+                onMouseEnter={e => (e.currentTarget.style.color = '#8a9bc4')}
+                onMouseLeave={e => (e.currentTarget.style.color = '#4a5a7c')}
+              >
+                — {s.source}
+              </a>
+            </div>
+          ))}
+        </div>
+        <p style={footnote}>
+          Meanwhile, only 0.1% of businesses respond to a new lead within 5 minutes.
+          DigiGrowth's AI responds in under 60 seconds — every time.
         </p>
       </div>
-      <div style={grid}>
-        {stats.map(s => (
-          <div
-            key={s.label}
-            style={card}
-            onMouseEnter={e => {
-              const el = e.currentTarget
-              el.style.borderColor = 'rgba(58,123,213,0.3)'
-              el.style.background = 'rgba(15, 25, 60, 0.95)'
-              el.style.transform = 'translateY(-4px)'
-              el.style.boxShadow = '0 20px 60px rgba(0,0,0,0.3)'
-            }}
-            onMouseLeave={e => {
-              const el = e.currentTarget
-              el.style.borderColor = 'rgba(58,123,213,0.1)'
-              el.style.background = 'rgba(10, 18, 40, 0.7)'
-              el.style.transform = 'translateY(0)'
-              el.style.boxShadow = 'none'
-            }}
-          >
-            <span style={label}>{s.label}</span>
-            <div style={value}>{s.value}</div>
-            <div style={desc}>{s.desc}</div>
-            <a
-              href={s.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={source}
-              onMouseEnter={e => (e.currentTarget.style.color = '#8a9bc4')}
-              onMouseLeave={e => (e.currentTarget.style.color = '#4a5a7c')}
-            >
-              — {s.source}
-            </a>
-          </div>
-        ))}
-      </div>
-      <p style={footnote}>
-        Meanwhile, only 0.1% of businesses respond to a new lead within 5 minutes.
-        DigiGrowth's AI responds in under 60 seconds — every time.
-      </p>
     </section>
   )
 }
