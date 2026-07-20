@@ -246,7 +246,7 @@ export default function Hero() {
             AI-backed ads, lead qualification, and follow-up — completely done-for-you,
             delivering{' '}
             <span style={highlight}>$5,000–$10,000 in new monthly business</span>{' '}
-            <span style={highlight}>guaranteed</span>.
+            <span style={highlight}>guaranteed</span>, or we work for free until you hit it.
           </p>
 
           <div style={ctaRow}>
