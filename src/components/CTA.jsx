@@ -89,6 +89,15 @@ export default function CTA() {
     letterSpacing: '1px',
   }
 
+  const fitNote = {
+    marginBottom: 28,
+    fontSize: 11,
+    color: '#4a5a7c',
+    fontFamily: "'Share Tech Mono', monospace",
+    letterSpacing: '1.5px',
+    textTransform: 'uppercase',
+  }
+
   return (
     <section style={section}>
       <div style={orb} />
@@ -100,8 +109,10 @@ export default function CTA() {
         </h2>
         <p style={sub}>
           Book a free 30-minute strategy call. We'll map out exactly how DigiGrowth delivers
-          $5,000–$10,000 in new monthly business for you — guaranteed, no pitch, no pressure.
+          $5,000–$10,000 in new monthly business for you — guaranteed, or we work for free until
+          you hit it. No pitch, no pressure.
         </p>
+        <div style={fitNote}>Best fit: medium-to-high-ticket service businesses</div>
         <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
           <button
             style={btn}

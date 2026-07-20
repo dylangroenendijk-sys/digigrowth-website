@@ -1,7 +1,7 @@
 const proofPoints = [
   { title: 'Built, not bought', desc: 'The entire automation stack is self-built — not templated software resold at a markup.' },
   { title: 'Direct access', desc: "You're talking to the person running your account — not a rep reading from a script." },
-  { title: 'Guarantee-backed', desc: '$5,000–$10,000 in new monthly business, guaranteed.' },
+  { title: 'Guarantee-backed', desc: '$5,000–$10,000 in new monthly business — guaranteed, or we work for free until you hit it.' },
 ]
 
 const CALENDLY_URL = 'https://calendly.com/dylanrg-digigrowthllc/30min'

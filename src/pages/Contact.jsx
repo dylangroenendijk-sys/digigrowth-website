@@ -270,12 +270,11 @@ export default function Contact() {
                   name="smsConsent"
                   checked={form.smsConsent}
                   onChange={handleChange}
-                  required
                 />
                 <label htmlFor="smsConsent" style={consentLabel}>
-                  I agree to receive SMS text messages from DigiGrowth, LLC at the phone number
-                  provided regarding my inquiry. Message frequency varies. Msg &amp; data rates may
-                  apply. Reply STOP to opt out, HELP for help. See our{' '}
+                  Optional: I agree to receive SMS text messages from DigiGrowth, LLC at the phone
+                  number provided regarding my inquiry. Message frequency varies. Msg &amp; data
+                  rates may apply. Reply STOP to opt out, HELP for help. See our{' '}
                   <a href={PRIVACY_URL} target="_blank" rel="noopener noreferrer" style={consentLink}>Privacy Policy</a>
                   {' '}and{' '}
                   <a href={TERMS_URL} target="_blank" rel="noopener noreferrer" style={consentLink}>Terms of Service</a>.
