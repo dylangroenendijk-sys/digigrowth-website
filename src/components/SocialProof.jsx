@@ -3,25 +3,29 @@ const stats = [
     value: '68%',
     label: 'AI ADOPTION',
     desc: 'of small businesses now use AI regularly — up from 48% just a year ago.',
-    source: 'Small-business AI adoption research, 2026',
+    source: 'Intuit QuickBooks Small Business Insights, Apr 2025',
+    url: 'https://quickbooks.intuit.com/r/small-business-data/april-2025-survey/',
   },
   {
     value: '91%',
     label: 'REVENUE IMPACT',
     desc: 'of small businesses using AI for marketing report it directly boosts revenue.',
-    source: 'Small-business AI adoption research, 2026',
+    source: 'Salesforce Small & Medium Business Trends, 2025',
+    url: 'https://www.salesforce.com/news/stories/smbs-ai-trends-2025/',
   },
   {
     value: '5-15 hrs',
     label: 'TIME SAVED',
     desc: 'saved every week on marketing tasks once AI handles the follow-up.',
-    source: 'Small-business AI adoption research, 2026',
+    source: 'Forbes, "AI Cuts Costs, Adds 13 Hours For SMB Marketers"',
+    url: 'https://www.forbes.com/sites/ronschmelzer/2025/07/20/new-study-ai-cuts-costs-adds-13-hours-for-smb-marketers/',
   },
   {
     value: '21x',
     label: 'SPEED TO LEAD',
     desc: 'more likely to qualify a lead when contacted within 5 minutes vs. 30.',
-    source: 'Lead response time research',
+    source: 'MIT / InsideSales.com Lead Response Management Study',
+    url: 'https://25649.fs1.hubspotusercontent-na2.net/hub/25649/file-13535879-pdf/docs/mit_study.pdf',
   },
 ]
 
@@ -119,6 +123,8 @@ export default function SocialProof() {
     color: '#4a5a7c',
     fontFamily: "'Share Tech Mono', monospace",
     letterSpacing: '0.5px',
+    textDecoration: 'none',
+    transition: 'color 0.2s',
   }
 
   const footnote = {
@@ -162,7 +168,16 @@ export default function SocialProof() {
             <span style={label}>{s.label}</span>
             <div style={value}>{s.value}</div>
             <div style={desc}>{s.desc}</div>
-            <div style={source}>— {s.source}</div>
+            <a
+              href={s.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={source}
+              onMouseEnter={e => (e.currentTarget.style.color = '#8a9bc4')}
+              onMouseLeave={e => (e.currentTarget.style.color = '#4a5a7c')}
+            >
+              — {s.source}
+            </a>
           </div>
         ))}
       </div>
