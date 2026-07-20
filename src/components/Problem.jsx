@@ -21,6 +21,7 @@ export default function Problem() {
     padding: 'clamp(64px, 14vw, 120px) 24px',
     maxWidth: 1100,
     margin: '0 auto',
+    background: '#060c1f',
   }
 
   const header = {

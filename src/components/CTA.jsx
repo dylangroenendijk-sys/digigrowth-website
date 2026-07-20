@@ -6,18 +6,61 @@ export default function CTA() {
     textAlign: 'center',
     position: 'relative',
     overflow: 'hidden',
+    background: '#060c1f',
   }
 
-  const orb = {
+  const orb1 = {
     position: 'absolute',
-    width: 700,
-    height: 700,
+    width: 600,
+    height: 600,
     borderRadius: '50%',
-    background: 'radial-gradient(circle, rgba(58,123,213,0.12) 0%, transparent 65%)',
-    top: '50%',
+    background: 'radial-gradient(circle, rgba(58,123,213,0.18) 0%, transparent 70%)',
+    top: '-100px',
     left: '50%',
-    transform: 'translate(-50%, -50%)',
+    transform: 'translateX(-50%)',
     filter: 'blur(40px)',
+    animation: 'float-a 12s ease-in-out infinite',
+    pointerEvents: 'none',
+  }
+
+  const orb2 = {
+    position: 'absolute',
+    width: 400,
+    height: 400,
+    borderRadius: '50%',
+    background: 'radial-gradient(circle, rgba(20,200,130,0.1) 0%, transparent 70%)',
+    bottom: '10%',
+    right: '5%',
+    filter: 'blur(60px)',
+    animation: 'float-b 15s ease-in-out infinite',
+    pointerEvents: 'none',
+  }
+
+  const orb3 = {
+    position: 'absolute',
+    width: 300,
+    height: 300,
+    borderRadius: '50%',
+    background: 'radial-gradient(circle, rgba(58,123,213,0.1) 0%, transparent 70%)',
+    top: '30%',
+    left: '5%',
+    filter: 'blur(50px)',
+    animation: 'float-b 18s ease-in-out infinite reverse',
+    pointerEvents: 'none',
+  }
+
+  const gridOverlay = {
+    position: 'absolute',
+    inset: 0,
+    backgroundImage: 'linear-gradient(rgba(58,123,213,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(58,123,213,0.04) 1px, transparent 1px)',
+    backgroundSize: '64px 64px',
+    pointerEvents: 'none',
+  }
+
+  const vignette = {
+    position: 'absolute',
+    inset: 0,
+    background: 'radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, #060c1f 100%)',
     pointerEvents: 'none',
   }
 
@@ -100,7 +143,11 @@ export default function CTA() {
 
   return (
     <section style={section}>
-      <div style={orb} />
+      <div style={orb1} />
+      <div style={orb2} />
+      <div style={orb3} />
+      <div style={gridOverlay} />
+      <div style={vignette} />
       <div style={inner}>
         <span style={label}>Ready to Scale?</span>
         <h2 style={h2}>

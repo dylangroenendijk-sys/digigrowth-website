@@ -34,7 +34,7 @@ export default function HowItWorks() {
   const bgStripe = {
     position: 'absolute',
     inset: 0,
-    background: 'rgba(10, 18, 40, 0.5)',
+    background: '#060c1f',
     borderTop: '1px solid rgba(58,123,213,0.08)',
     borderBottom: '1px solid rgba(58,123,213,0.08)',
   }
