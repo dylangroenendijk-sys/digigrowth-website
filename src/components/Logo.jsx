@@ -17,9 +17,10 @@ export default function Logo({ size = 30 }) {
         </defs>
         <rect x="4" y="4" width="72" height="72" rx="18"
           stroke="url(#dg-g)" strokeWidth="1.8" fill="url(#dg-d)" />
-        <rect x="17" y="40" width="10" height="20" rx="4" fill="url(#dg-g)" opacity="0.75" />
-        <rect x="35" y="28" width="10" height="32" rx="4" fill="url(#dg-g)" opacity="0.88" />
-        <rect x="53" y="16" width="10" height="44" rx="4" fill="url(#dg-g)" />
+        <polyline points="14,60 31.7,32.5 43.6,50.8 66,16"
+          fill="none" stroke="url(#dg-g)" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+        <polyline points="51.8,16 66,16 66,38"
+          fill="none" stroke="url(#dg-g)" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
 
       {/* Wordmark */}
