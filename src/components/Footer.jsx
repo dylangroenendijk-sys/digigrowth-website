@@ -117,7 +117,7 @@ export default function Footer() {
     <footer style={footer}>
       <div style={inner} className="footer-inner">
         <div style={left} className="footer-block">
-          <Logo size={24} />
+          <Logo size={34} />
           <span style={tagline}>Done-For-You Digital Growth</span>
           <span style={copy}>© {new Date().getFullYear()} DigiGrowth LLC</span>
         </div>
